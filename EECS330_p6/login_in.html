@@ -25,16 +25,22 @@
     <h1>Welcome Back!</h1>
 
     <form>
-      <input class = "email" type="text" placeholder="Email Address/User Name"/>
+      <input class = "email" type="text" placeholder="Email Address/User Name"/ id="userEmail">
       <input class = "password" type="text" placeholder="Your Password"/>
     </form>
 
     <form class="login-form">
-      <button type="button" onclick="window.location.href='signup.html'">Log In</button>
+      <button type="button" onclick="jumpToMainPage()">Log In</button>
     </form>
     <div class="cta"><a href="signup.html">Click here to Sign Up!</a></div>
   </div>
 </div>
 
+<script>
+  function jumpToMainPage() {
+      var userEmail = document.getElementById("userEmail").value
+      window.location.href = 'main_page.html' + '#' + userEmail;     
+  }
+</script>
 </body>
 </html>

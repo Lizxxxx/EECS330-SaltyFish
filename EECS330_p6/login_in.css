@@ -24,15 +24,26 @@ h1 {
 }
 
 .head-right{
+  float:right;
+  width:20%;
 
 }
 
-
 .login-button {
+	width:150px;
+	height:60px;
+  	background-color: #4E2A84;
+  	border-radius:10px;
+  	margin-top:10px;
+  	font-size:15px;
+  	font-weight: bold;
+  	color:#FFFFFF;
+}
+/* .login-button {
   float: right;
   margin-right:20px;
   margin-top:25px;
-}
+} */
 .cta {
   background: #f2f2f2;
   width: 100%;

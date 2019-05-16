@@ -39,6 +39,17 @@ h1 {
   	font-weight: bold;
   	color:#FFFFFF;
 }
+.logout-button {
+	width:50px;
+	height:20px;
+  	background-color: #4E2A84;
+  	border-radius:10px;
+  	margin-top:10px;
+  	font-size:15px;
+  	font-weight: bold;
+  	color:#FFFFFF;
+}
+
 /* .login-button {
   float: right;
   margin-right:20px;

@@ -1,0 +1,46 @@
+<html>
+ <!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="login_in.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+</head>
+
+<body class="body">
+  <div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class = "head-right">
+    </div>
+  
+<div class="login-page">
+  <div class="form">
+
+    <h1>Welcome Back!</h1>
+
+    <form>
+      <input class = "email" type="text" placeholder="Email Address/User Name"/ id="userEmail">
+      <input class = "password" type="text" placeholder="Your Password"/>
+    </form>
+
+    <form class="login-form">
+      <button type="button" onclick="jumpToMainPage()">Log In</button>
+    </form>
+    <div class="cta"><a href="signup.html">Click here to Sign Up!</a></div>
+  </div>
+</div>
+
+<script>
+  function jumpToMainPage() {
+      var userEmail = document.getElementById("userEmail").value
+      window.location.href = 'main_page.html' + '#' + userEmail;     
+  }
+</script>
+</body>
+</html>

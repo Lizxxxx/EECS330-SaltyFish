@@ -1,0 +1,49 @@
+
+<html>
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="login_in.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <script>
+    var text = window.location.hash.substring(1)
+    if (text == ''){
+      text = 'Login/Signup' 
+    }
+
+      
+    </script>
+</head>
+
+<body >
+		
+  <div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class = "head-right">
+      <button class ="login-button" onclick="window.location.href = 'login_in.html'">
+        <i id="User" > 
+        <script type="text/javascript">
+        document.write(text)
+      </script>
+      </i>
+    </button>
+    </div>
+
+    <!-- <a href="signup.html">
+			<div class = "back-button">
+				<i class="material-icons">arrow_back</i>	
+      </div>
+    </a> -->
+</div>
+
+
+
+</body>
+</html>
+

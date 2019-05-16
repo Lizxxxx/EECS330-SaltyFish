@@ -26,6 +26,9 @@ h1 {
 .head-right{
 }
 
+#confirm-form{
+  display: none;
+}
 
 .login-button {
   float: right;

@@ -19,26 +19,44 @@
   color:#FFFFFF;
   font-size:40px;
 	margin-top:10px; */
-	text-align: center;
+  float:left;
   padding-top:15px;
   color:#FFFFFF;
-  font-size:30px;
+  font-size:40px;  
+  margin-left:300px;
+
+
  
 }
 
 .head-right{
   float:right;
-  width:20%;
+  margin-right: 50px;
+  margin-top:10px;
 
 }
 
 
 .login-button {
-	width:150px;
+	width:120px;
 	height:60px;
+  background-color: #4E2A84;
+  border-radius:10px;
+  font-size:15px;
+  font-weight: bold;
+  color:#FFFFFF;
+}
+
+.logout-button {
+  /* float:right;
+  margin-right: -50px;
+  margin-top:10px; */
+	width:80px;
+	height:40px;
   	background-color: #4E2A84;
   	border-radius:10px;
-  	margin-top:10px;
+    margin-top:10px;
+    margin-left:10px;
   	font-size:15px;
   	font-weight: bold;
   	color:#FFFFFF;

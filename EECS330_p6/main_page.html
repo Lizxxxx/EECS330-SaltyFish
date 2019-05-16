@@ -1,19 +1,21 @@
 
 <html>
 <head>
-  <title>Login</title>
+  <title>NU Freelance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="login_in.css">
+  <link rel="stylesheet" type="text/css" href="main_page.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
   <script>
     var text = window.location.hash.substring(1)
+    var showButton = false
     if (text == ''){
-      text = 'Login/Signup' 
+      text = 'Login/Signup'      
     }
+    else showButton = true
 
       
     </script>
@@ -25,14 +27,22 @@
     <div class = "head-left">
       <h>NU Freelance Service Page</h>
     </div>
-    <div class = "head-right">
+    <div class = "head-right" id="head-right">
       <button class ="login-button" onclick="window.location.href = 'login_in.html'">
         <i id="User" > 
         <script type="text/javascript">
         document.write(text)
+        if (showButton == true){
+          var btn = document.createElement("BUTTON");   // Create a <button> element
+          btn.className = "logout-button";
+          btn.onclick=function() {window.location.href = "main_page.html";};
+          btn.innerHTML = "Log out";                   // Insert text       
+          document.getElementById("head-right").appendChild(btn);
+        }
       </script>
       </i>
     </button>
+
     </div>
 
     <!-- <a href="signup.html">

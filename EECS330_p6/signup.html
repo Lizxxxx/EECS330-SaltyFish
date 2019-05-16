@@ -30,7 +30,7 @@
       <input class = "email" type="text" placeholder="your email address" id="email"/>
       <input class = "password" type="text" placeholder="set a password"id="password"/>
       <input class = "confirm" type="password" placeholder="confirm password" id="confirmPassword"/>
-      <label class = "check"><input type="checkbox"/>Agree to Register</label>
+      <label class = "check" ><input type="checkbox" id="signup-checkbox"/>Agree to Register</label>
       
     </form>
 
@@ -65,23 +65,22 @@
   function validate() {
     var pwValid = confirmEmail()
     var emValid = validateEmail()
+    var myCheck = document.getElementById("signup-checkbox").checked
     if(!pwValid) {
-        alert('password not matching!');
+        alert(( "password not matching!" ));
         return false;
     }
-    else {
-      if(! emValid)
-      {
+    if(! emValid){
         alert('Not valid email!');
         return false
-      }
-      else
-      {
-        window.location.href='login_in.html'
-        return confirm('Do you really want to submit the form?');
-      }
     }
-  }
+    if(! myCheck){
+        alert('Please click agree to register');
+        return false
+    }
+    window.location.href='login_in.html'
+    return confirm('Do you really want to submit the form?');
+}
 </script>
 
 </body>

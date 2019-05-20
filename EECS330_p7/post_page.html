@@ -1,0 +1,95 @@
+<html>
+ <!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>My Post</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="post_page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+</head>
+
+<body class="body">
+  <div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class = "head-right">
+      <button class = "username">User</button>
+    </div>
+  </div>
+
+  <div class = "title">
+    <form>
+      <textarea class = "filltitle" type="text" placeholder="Title"></textarea>
+      <textarea class = "fillcontent" type="text" placeholder="Content" rows = "9"></textarea>
+      <div class = "category">
+      <b>Choose one category from right*: </b>
+      <label class = "choice"><b>Study</b></label>
+      <label class = "choice"><b>Casual</b></label>
+      <label class = "choice"><b>Daily</b></label>
+      <label class = "choice"><b>Others</b></label>
+      </div>
+      <div class = "information">
+        <b>Contact Information*: </b>
+          <label class = "contact">Email
+          <input class = "infoform" type = text name = "fillemail">
+          Phone
+          <input class = "infoform" type = text name = "fillphone">
+          Other
+          <input class = "infoform" type = text name = "fillother">
+          </label>
+      </div>
+      <div class = "method">
+        <form id="method-form">
+          <b>Payment Method*:</b>  
+          <label class="radio-inline">
+            <input type="radio" name="optradio" >Cash
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio">Check
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio">Vonmo/Paypal
+          </label>
+              <label class="radio-inline">
+            <input type="radio" name="optradio">Chase QUickpay/Zelle
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio">other
+          </label>
+        </form>     
+      </div>
+      <div class = "option">
+        <form id="schedule-form">
+          <b>Schedule Option*:</b>  
+          <label class="radio-inline">
+            <input type="radio" name="optradio" >Only Weekends
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio">Only Workdays
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio">Both Weekends and Weekdays
+          </label>
+      </form>
+      </div>
+    </form>
+       <div class = "linkbutton">
+          <button class = "quit">Quit</button>
+          <button class = "post">Post</button>
+        </div>
+
+  </div>
+
+
+<script>
+  function jumpToMainPage() {
+      var userEmail = document.getElementById("userEmail").value
+      window.location.href = 'main_page.html' + '#' + userEmail;     
+  }
+</script>
+</body>
+</html>

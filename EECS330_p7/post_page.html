@@ -23,8 +23,8 @@
 
   <div class = "title">
     <form>
-      <textarea class = "filltitle" type="text" placeholder="Title"></textarea>
-      <textarea class = "fillcontent" type="text" placeholder="Content" rows = "9"></textarea>
+      <textarea class = "filltitle" type="text" placeholder="Title" id="Title"></textarea>
+      <textarea class = "fillcontent" type="text" placeholder="Content" rows = "9" id="Content"></textarea>
       <div class = "category">
       <b>Choose one category from right*: </b>
       <label class = "choice"><b>Study</b></label>
@@ -79,7 +79,7 @@
     </form>
        <div class = "linkbutton">
           <button class = "quit">Quit</button>
-          <button class = "post">Post</button>
+          <button type="button" class = "post" onclick="jumpToMainPage()">Post</button>
         </div>
 
   </div>
@@ -87,8 +87,10 @@
 
 <script>
   function jumpToMainPage() {
-      var userEmail = document.getElementById("userEmail").value
-      window.location.href = 'main_page.html' + '#' + userEmail;     
+      //var userEmail = document.getElementById("userEmail").value
+      var Title = document.getElementById("Title").value
+      var Content = document.getElementById("Content").value
+      window.location.href = 'main_page.html' + '#' +'Signed&' +'guo&'+ Title + '&' + Content;   
   }
 </script>
 </body>

@@ -9,13 +9,16 @@
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
+  <script src = "main_page.js"></script>
   <script>
-    var text = window.location.hash.substring(1)
-    var showButton = false
-    if (text == ''){
-      text = 'Login/Signup'      
-    }
-    else showButton = true
+        var userName = ''
+        var params = (window.location.hash.substring(1)).split("&");
+        var showButton = false
+        if (params[0] == 'Signed'){
+          showButton = true;
+          userName = params[1];             
+        }
+        else {userName = 'Login/Signup' }
       
     </script>
 </head>
@@ -31,7 +34,7 @@
       <button class ="login-button" onclick="window.location.href = 'login_in.html'">
         <i id="User" > 
         <script type="text/javascript">
-        document.write(text)
+        document.write(userName)
         if (showButton == true){
           var btn = document.createElement("BUTTON");   // Create a <button> element
           btn.className = "logout-button";
@@ -45,15 +48,34 @@
 
     </div>
   </div>
-
-    <!-- <a href="signup.html">
-      <div class = "back-button">
-        <i class="material-icons">arrow_back</i>  
-      </div>
-    </a> -->
 </div>
-
-
+<!-- posts -->
+<div class = "tag">
+    <label class = "category">
+    <button class = "tagname">All</button>
+    <button class = "tagname">Study</button>
+    <button class = "tagname">Casual</button>
+    <button class = "tagname">Daily</button>
+    <button class = "tagname">Others</button>
+    </label>
+    </div>
+    <div class = "userpost" id="userpost" >
+     <form>
+     <div class = "post"><span>Study</span><label class = "post-title">Good Math Tutor Every M/W/F!!!</label>
+     <p>I am a senior math major student and I can definitely help you with your math homework. I have taken the following courses....Feel free to contact me...</p>
+     <p class= "author"> Post by Lily</p></div>
+     <div class = "post"><span>Causal</span><label class = "post-title">Music Tutor for Vocal/Piano/Violin</label>
+     <p>This is just text for filling out blank space.............</p>
+     <p class= "author"> Post by Joe</p></div>
+     </form>
+ 
+    </div>
+    <div id = "posts">
+        <script>
+            if (showButton == true){
+            addPost(params[2],params[3]);}
+        </script>
+    </div>
 
 </body>
 </html>

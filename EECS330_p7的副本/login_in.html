@@ -1,0 +1,52 @@
+<html>
+ <!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>Log In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="login_in.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+</head>
+
+<body class="body">
+  <div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class = "head-right">
+    </div>
+  
+<div class="login-page">
+  <div class="form">
+
+    <h1>Welcome Back!</h1>
+
+    <form class="login-form" id = "login-form">
+        <div><input id="cancel-button" type="button" value="X" onclick="window.location.href='main_page.html'"></div>
+      <input class = "email" type="text" placeholder="User Name" id="userEmail" required/>
+      <input class = "password" type="password" placeholder="Your Password" required/>
+      <button type="submit" class="button" id="login-button">Log In</button>
+    </form>
+
+    <!-- <form class="login-form">
+      <button type="submit" class="button" id="login-button">Log In</button>
+    </form> -->
+    <div class="cta"><a href="signup.html">Click here to Sign Up!</a></div>
+  </div>
+</div>
+
+<script>
+  function jumpToMainPage() {
+      var userEmail = document.getElementById("userEmail").value
+      window.location.href = 'main_page.html' + '#' + 'Signed&' +userEmail;     
+  }
+  document.getElementById('login-form').onsubmit= function(e){
+     e.preventDefault();
+     jumpToMainPage()
+}
+</script>
+</body>
+</html>

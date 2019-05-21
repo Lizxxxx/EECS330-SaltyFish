@@ -1,7 +1,7 @@
 //document.body.onload = addElement;
    
 
-function addPost (postText,Content) {  
+function addPost (postText,Content,userName) {  
   var newDiv = document.createElement("div");  
   newDiv.setAttribute('class', 'post');
   // add post's category
@@ -20,7 +20,7 @@ function addPost (postText,Content) {
   newDiv.append(postContent);
   //add post's author name
   var postContent = document.createElement("p");
-  postContent.textContent = 'Post by Guo'; 
+  postContent.textContent = 'Post by ' + userName; 
   postContent.setAttribute('class', 'author');
   newDiv.append(postContent);
 

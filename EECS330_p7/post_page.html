@@ -9,6 +9,18 @@
   <link rel="stylesheet" type="text/css" href="post_page.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <script>
+      var userName = ''
+      var params = (window.location.hash.substring(1)).split("&");
+      var showButton = false
+      var showNewPost = false
+      if (params[0] == 'Signed'){
+        showButton = true;
+        userName = params[1];           
+      }
+      else {userName = 'Login/Signup' }
+    
+  </script>
 </head>
 
 <body class="body">
@@ -16,9 +28,23 @@
     <div class = "head-left">
       <h>NU Freelance Service Page</h>
     </div>
-    <div class = "head-right">
-      <button class = "username">User</button>
-    </div>
+    <div class = "head-right" id="head-right">
+        <button class ="login-button" onclick="window.location.href = 'login_in.html'">
+          <i id="User" > 
+          <script type="text/javascript">
+          document.write(userName)
+          if (showButton == true){
+            var btn = document.createElement("BUTTON");   // Create a <button> element
+            btn.className = "logout-button";
+            btn.onclick=function() {window.location.href = "main_page.html";};
+            btn.innerHTML = "Log out";                   // Insert text       
+            document.getElementById("head-right").appendChild(btn);
+          }
+        </script>
+        </i>
+      </button>
+  
+      </div>
   </div>
 
   <div class = "title">
@@ -90,7 +116,7 @@
       //var userEmail = document.getElementById("userEmail").value
       var Title = document.getElementById("Title").value
       var Content = document.getElementById("Content").value
-      window.location.href = 'main_page.html' + '#' +'Signed&' +'guo&'+ Title + '&' + Content;   
+      window.location.href = 'main_page.html' + '#' +'Signed&' +userName +'&'+ Title + '&' + Content;   
   }
 </script>
 </body>

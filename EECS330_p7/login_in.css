@@ -1,5 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+#cancel-button {
+  line-height: 10px;
+  width: 18px;
+  font-size: 6pt;
+  font-family: tahoma;
+  margin-top: 1px;
+  margin-right: 2px;
+  position:absolute;
+  top:0px;
+  right:0px;
+  background-color: #FFFFFF;
+  color:#4E2A84;
+  border: none;
+  border-radius:  10px;
+}
 h1 {
   text-align:center;
   color: #4B0082;

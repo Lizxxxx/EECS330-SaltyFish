@@ -56,7 +56,18 @@
     <button class = "tagname">Study</button>
     <button class = "tagname">Casual</button>
     <button class = "tagname">Daily</button>
-    <button class = "tagname">Others</button>
+    <button class = "tagname" id="tagOthers">Others</button>
+    <script type = "text/javascript">
+     	if(showButton == true){
+     		var postbtn = document.createElement("BUTTON");
+     		postbtn.onclick = function() {window.location.href = "post_page.html";};
+     		postbtn.innerHTML = "NEW POST";
+     		postbtn.id ="newpost";
+     		//tagOthers = document.getElementById("tagOthers")
+  			//document.body.insertAfter(postbtn, tagOthers); 
+     		document.getElementById("tagOthers").parentNode.appendChild(postbtn);
+     	}
+     </script>
     </label>
     </div>
     <div class = "userpost" id="userpost" >

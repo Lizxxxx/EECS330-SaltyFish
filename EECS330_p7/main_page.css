@@ -126,8 +126,20 @@
 }
 
 .author {
-  float: right;
-  padding-right: 40px;
+ padding-bottom: ;
+padding-left:80%;
+}
+
+#newpost{
+  background-color: rgb(79, 59, 140);
+  border:none;
+  border-radius: 5px;
+  font-weight:bold;
+  font-size: 18px;
+  color:#FFFFFF;
+  width: 150px;
+  height: 50px;
+  margin-left: 110px;
 }
 
 

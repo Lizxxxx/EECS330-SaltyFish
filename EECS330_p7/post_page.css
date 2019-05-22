@@ -111,9 +111,9 @@
 }
 
 .title .category{
-  background-color: #D8BFD8;
+  background-color: rgb(131, 110, 170,0.1);
   width:60%;
-  height: 25px;
+  height: 33px;
   border:none;
   margin: 0 250px 10px;
   padding-top: 8px;
@@ -121,9 +121,9 @@
 }
 
 .title .information{
-  background-color: #D8BFD8;
+  background-color:rgb(131, 110, 170,0.1);
   width:60%;
-  height: 25px;
+  height: 33px;
   border:none;
   margin: 0 250px 10px;
   padding-top: 8px;
@@ -131,19 +131,19 @@
 }
 
 .title .method{
-  background-color: #D8BFD8;
+  background-color: rgb(131, 110, 170,0.1);
   width:60%;
-  height: 25px;
+  height: 50px;
   border:none;
   margin: 0 250px 10px;
-  padding-top: 8px;
+  padding-top: 4px;
   padding-left:2px;
 }
 
 .title .option{
-  background-color: #D8BFD8;
+  background-color:rgb(131, 110, 170,0.1);
   width:60%;
-  height: 25px;
+  height: 33px;
   border:none;
   margin: 0 250px 10px;
   padding-top: 8px;
@@ -151,16 +151,27 @@
 }
 
 .choice{
-  background-color: #DDA0DD;
-  height: 18px;
+  background-color:rgb(131, 110, 170,0.7);
+  text-align: center;
+  height: 25px;
   border:none;
   border-radius: 5px;
   margin: 15px;
+  display: inline-block;
+  width:70px;
+  margin-top: 0px;
+  box-shadow: none;
+  /* box-shadow: 0 0 5px 1px red; */
+}
 
+.choice:hover {
+  background-color: #4E2A84;
 }
 
 .infoform{
   width:150px;
+  /* box-shadow: 0 0 5px 1px red; */
+  box-shadow: none;
 }
 
 .linkbutton{
@@ -169,8 +180,8 @@
 
 .quit{
   background-color:#4E2A84;
-  height: 60px;
-  width:180px;
+  height: 55px;
+  width:160px;
   margin-left:350px;
   border:none;
   border-radius: 10px;
@@ -180,8 +191,8 @@
 
 .post{
   background-color:#4E2A84;
-  height:60px;
-  width:180px;
+  height:55px;
+  width:160px;
   margin-left:150px;
   border:none;
   border-radius: 10px;

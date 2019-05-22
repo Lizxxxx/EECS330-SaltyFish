@@ -14,9 +14,13 @@
         var userName = ''
         var params = (window.location.hash.substring(1)).split("&");
         var showButton = false
+        var showNewPost = false
         if (params[0] == 'Signed'){
-          showButton = true;
-          userName = params[1];             
+          showButton = true;            
+          userName = params[1];  
+          if(params.length >2){
+          showNewPost = true;
+           }           
         }
         else {userName = 'Login/Signup' }
       
@@ -60,7 +64,8 @@
     <script type = "text/javascript">
      	if(showButton == true){
      		var postbtn = document.createElement("BUTTON");
-     		postbtn.onclick = function() {window.location.href = "post_page.html";};
+     		postbtn.onclick =function jumpToNewPostPage() {
+              window.location.href = 'post_page.html' + '#' +'Signed&' +userName;}
      		postbtn.innerHTML = "NEW POST";
      		postbtn.id ="newpost";
      		//tagOthers = document.getElementById("tagOthers")
@@ -83,8 +88,8 @@
     </div>
     <div id = "posts">
         <script>
-            if (showButton == true){
-            addPost(params[2],params[3]);}
+            if (showNewPost == true){
+            addPost(params[2],params[3],params[1]);}
         </script>
     </div>
 

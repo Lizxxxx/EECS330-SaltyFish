@@ -60,12 +60,6 @@
 }
 
 
-
-
-
-
-
-
 .logout-button {
   /* float:right;
   margin-right: -50px;
@@ -82,30 +76,31 @@
 
 /* for tags */
 .tag{
-  margin:20px 250px 10px;
+  margin:25px 250px 10px;
 }
 
 .tagname{
   margin: 0 5px;
-  width: 50px;
+  width: 60px;
   height: 30px;
   background-color: rgb(79, 59, 140);
   border: none;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 15px;
   color: #FFFFFF;
   text-align:center;
 }
 
 /* for posts */
 .post{
-  background-color: rgb(131, 110, 170) ;
-  margin: 0 250px 10px;
+  background-color: rgb(131, 110, 170,0.2) ;
+  margin: 0 250px 20px;
+  margin-top: 25px;
   width: 60%;
   height: 130px;
   border-radius: 4px;
-  padding-top: 10px;
-  padding-left: 10px;
+  padding-top: 30px;
+  padding-left: 30px;
 }
 
  span{
@@ -133,13 +128,13 @@ padding-left:80%;
 #newpost{
   background-color: rgb(79, 59, 140);
   border:none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight:bold;
   font-size: 18px;
   color:#FFFFFF;
   width: 150px;
   height: 50px;
-  margin-left: 110px;
+  margin-left: 330px;
 }
 
 

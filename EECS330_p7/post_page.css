@@ -160,6 +160,8 @@
   display: inline-block;
   width:70px;
   margin-top: 0px;
+  box-shadow: none;
+  /* box-shadow: 0 0 5px 1px red; */
 }
 
 .choice:hover {
@@ -168,6 +170,8 @@
 
 .infoform{
   width:150px;
+  /* box-shadow: 0 0 5px 1px red; */
+  box-shadow: none;
 }
 
 .linkbutton{

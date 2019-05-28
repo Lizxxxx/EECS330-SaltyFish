@@ -29,3 +29,30 @@ function addPost (postText,Content,userName)  {
   defaultPosts = document.getElementById("userpost")
   document.body.insertBefore(newDiv, defaultPosts); 
 }
+function editNav(myUSerName)
+{
+  console.log("here I am");
+  // headrBar = document.getElementById("signup-a");
+  // headrBar.style.display="block"
+  if(myUSerName=="")
+  {
+    console.log("only login")
+    var myBar = document.getElementById("my-bar");
+    var iconDiv = document.createElement('div');
+    var logIcon = '<a href="#" onclick="window.location.href =\'login_in.html\' "><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a>'
+    iconDiv.innerHTML=logIcon
+    myBar.appendChild(iconDiv);
+  }
+  else{
+    console.log(myUSerName)
+    var myBar = document.getElementById("my-bar");
+    var iconDiv = document.createElement('div');
+    var multilines = `<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>${myUSerName} <i class="fa fa-caret-down"></i></a> 
+        <ul class="dropdown-menu"><li><a href="#" onclick="window.location.href =\'login_in.html\'">profile</a></li></ul>
+        <a href="#" onclick="window.location.href =\'main_page.html\' "><i class="fa fa-fw fa-sign-out"></i>Logout</a> `;
+    iconDiv.innerHTML=multilines
+    // myBar.removeChild(icon);
+    myBar.appendChild(iconDiv);
+  }
+
+}

@@ -21,13 +21,9 @@
          var showNewPost = false
          if (params[0] == 'Signed'){
            showButton = true;            
-           userName = params[1];  
-           if(params.length >2){
-           showNewPost = true;
-            }           
+           userName = params[1];            
          }
-         else {userName = '' }
-       
+         else {userName = '' }      
      </script>
 
 </head>
@@ -48,8 +44,8 @@
 </div>
 <!-- posts -->
 <div class = "profile">
-  <div class = "back">
-          <a href="main_page.html">         
+  <div class = "back" onclick="jumpBackToMainPage()">
+        <a >        
             <i class = "material-icons md-36">arrow_back</i>Back
           </a>
   </div>
@@ -61,15 +57,26 @@
     </div>
     <div class = "lower">
       <div class = "innerwindow">
-        <ul>
-        <li>Good Math Tutor Every M/W/F!!!<label>Edit</label><span>View</span></li>
-        <li>Music Tutoring During Weekends!!!<label>Edit</label><span>View</span></li>
+        <ul id="user_posts">
+        <!-- <li>Good Math Tutor Every M/W/F!!!<label>Edit</label><span>View</span></li>
+        <li>Music Tutoring During Weekends!!!<label>Edit</label><span>View</span></li> -->
         </ul>
       </div>
     </div>
   </div>
 </div>
 
+<script type="text/javascript"> 
+  res=getProfile(userName);
+  var postList =res.postList;
+  for (i = 0; i < postList.length; i++) {
+    showPost(postList[i].title,userName,postList[i].titleKey);
+  }
+
+function jumpBackToMainPage(){
+  window.location.href = 'main_page.html' + '#' +'Signed&' +userName
+}
+  </script>
 
 </body>
 </html>

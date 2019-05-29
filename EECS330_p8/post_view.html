@@ -7,7 +7,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+   <script src = "main_page.js"></script>
+   <script>
+    var userName = ''
+    var params = (window.location.hash.substring(1)).split("&");
+    var showButton = false
+    var showNewPost = false
+    if (params[0] == 'Signed'){
+      showButton = true;            
+      userName = params[1];  
+      titleKey=  params[2];
+      var res=getPostClass(titleKey);
 
+    }
+    else {userName = '' } 
+
+</script>
 </head>
 
 <body class = 'body'>
@@ -44,20 +59,20 @@
   </div>
 <div class = "yourpost">
 	<div class = "title">
-		<label class = "study">Study</label>Good Math Tutor Every M/W/F!!!
+		<label class = "study">Study</label><script type="text/javascript">document.write(res.title)</script>
 	</div>
 	<p class = "content">
-	I am a senior math major and I can definitely help you with your math homework.....
+    <script type="text/javascript">document.write(res.content)</script>
     </p>
 </div>
 <div class = "contact-info">
-	<span>Contact Information: Email<span>
+	<span>Contact Information: <script type="text/javascript">document.write(res.email)</script><span>
 </div>
 <div class = "payment-method">
-	Payment Method: <input type="radio" checked = "checked" name="pay-method" value="Cash" required >Cash<input type="radio" checked = "checked" name="pay-method2" value="Cash" required >Venmo/Paypal
+	Payment Method:<script type="text/javascript">document.write(res.payment)</script>
 </div>
 <div class = "schedule-option">
-	Schedule Options: <input type="radio" checked = "checked" name="pay-method3" value="Cash" required >Both Weekends and Weekdays
+	Schedule Options:<script type="text/javascript">document.write(res.schedule)</script>
 </div>
 </body>
 </html>

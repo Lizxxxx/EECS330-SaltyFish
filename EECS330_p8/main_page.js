@@ -56,6 +56,40 @@ function addPost (postText,Content,userName)  {
   defaultPosts = document.getElementById("userpost")
   document.body.insertBefore(newDiv, defaultPosts); 
 }
+
+//this function is for user_profile page to show user's posts
+function showPost (postText,userName,titleKey)  { 
+var newli = document.createElement("li"); 
+newli.textContent = postText;
+//View
+var newLabelView=document.createElement("label"); 
+//newLabelView.textContent = "View";
+var viewA=document.createElement("a"); 
+viewA.textContent="View"
+viewA.href = "post_view.html#Signed&"+userName+'&'+titleKey;
+newLabelView.appendChild(viewA)
+//newLabelView.href = "post_view.html#Signed&"+userName+'&'+titleKey;
+
+newli.appendChild(newLabelView);
+//Delete
+var newSpanDelete=document.createElement("span"); 
+//newSpanDelete.textContent = "Delete";
+newSpanDelete.onclick=function(){
+//delete a post in local storage and refresh
+deletePost.call(this,titleKey);
+//window.location.href = 'user_profile.html' + '#' +'Signed&' +userName;
+}
+var deleteA=document.createElement("a"); 
+deleteA.textContent="Delete"
+deleteA.href = "user_profile.html#Signed&"+userName+'&'+titleKey;
+newSpanDelete.appendChild(deleteA)
+
+newli.appendChild(newSpanDelete);
+
+var posts_ul = document.getElementById("user_posts");
+posts_ul.appendChild(newli)
+}
+
 function editNav(myUSerName)
 {
   console.log("here I am");
@@ -123,7 +157,7 @@ function getPostClass(titleKey)
   res.content = postData[1].value
   res.email = postData[2].value
   res.phone = postData[3].value
-  res.otherContect = postData[4].value
+  res.otherContact = postData[4].value
   res.payment = postData[5].value
   res.schedule = postData[6].value
   res.categories = postData[7].value
@@ -133,4 +167,29 @@ function exampleTest()
 {
   var profile = getProfile(userName);
   console.log("example",profile)
+}
+
+function deletePost(postKey)
+{
+var infos = postKey.split("-")
+var infoUser = infos[0]
+deleteUserPost(infoUser,postKey)
+localStorage.removeItem(postKey);
+}
+function deleteUserPost(infoUser,postKey)
+{
+var userdata = JSON.parse(localStorage.getItem(infoUser));
+var targetIndex = -1;
+for(i=0;i<userdata.length;i++)
+{
+if((userdata[i].name == "title") && (userdata[i].value==postKey)){
+targetIndex=i
+}
+}
+if(targetIndex != -1)
+{
+userdata.splice(targetIndex,1)
+}
+var newUserData = JSON.stringify(userdata);
+localStorage.setItem(infoUser,newUserData); 
 }

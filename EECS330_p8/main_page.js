@@ -1,5 +1,32 @@
 //document.body.onload = addElement;
-   
+ 
+class UserProfile {
+  constructor(name) {
+      this.name = name;
+      this.email = "";
+      this.password = "";
+      this.titleKeys = [];
+      this.postList = [];
+  }
+  // Adding a method to the constructor
+  greet() {
+      return `${this.name} says hello.`;
+  }
+}
+class PostInfo
+{
+  constructor(name) {
+  this.titleKey = name;
+  this.title = "";
+  this.content = "";
+  this.email = "";
+  this.phone = "";
+  this.otherContect = "";
+  this.payment = "";
+  this.schedule = "";
+  this.categories = [];
+  }
+}
 
 function addPost (postText,Content,userName)  {  
   var newDiv = document.createElement("div");  
@@ -72,4 +99,38 @@ function jumpProfile()
     // window.location.href = 'user_profile.html' + '#' +'Signed&' +userName;
     console.log("here is profile")
   }
+}
+function getProfile(keyName)
+{
+  var userdata = JSON.parse(localStorage.getItem(keyName));
+  var userProfile = new UserProfile(keyName);
+  userProfile.email = userdata[1].value;
+  userProfile.password = userdata[2].value;
+  for (i = 3; i < userdata.length; i++) { 
+    tempTitle = userdata[i].value
+    userProfile.titleKeys.push(tempTitle)
+    var postInfo = getPostClass(tempTitle)
+    userProfile.postList.push(postInfo);
+  }
+  // console.log("userProfile",userProfile)
+  return userProfile
+}
+function getPostClass(titleKey)
+{
+  var postData = JSON.parse(localStorage.getItem(titleKey));
+  var res = new PostInfo(titleKey);
+  res.title = postData[0].value
+  res.content = postData[1].value
+  res.email = postData[2].value
+  res.phone = postData[3].value
+  res.otherContect = postData[4].value
+  res.payment = postData[5].value
+  res.schedule = postData[6].value
+  res.categories = postData[7].value
+  return res
+}
+function exampleTest()
+{
+  var profile = getProfile(userName);
+  console.log("example",profile)
 }

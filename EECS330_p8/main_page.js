@@ -39,7 +39,7 @@ function editNav(myUSerName)
     console.log("only login")
     var myBar = document.getElementById("my-bar");
     var iconDiv = document.createElement('div');
-    var logIcon = '<a onclick="window.location.href =\'login_in.html\' "><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a>'
+    var logIcon = '<a href="#" onclick="window.location.href =\'login_in.html\' "><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a>'
     iconDiv.innerHTML=logIcon
     myBar.appendChild(iconDiv);
   }
@@ -47,9 +47,10 @@ function editNav(myUSerName)
     console.log(myUSerName)
     var myBar = document.getElementById("my-bar");
     var iconDiv = document.createElement('div');
-    var multilines = `<a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>${myUSerName} <i class="fa fa-caret-down"></i></a> 
-        <ul class="dropdown-menu"><li><a  onclick="jumpProfile()">profile</a></li></ul>
-        <a  onclick="window.location.href =\'main_page.html\' "><i class="fa fa-fw fa-sign-out"></i>Logout</a> `;
+    var hrefProt = '#' +'Signed&' +myUSerName;
+    var multilines = `<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>${myUSerName} <i class="fa fa-caret-down"></i></a> 
+        <ul class="dropdown-menu"><li><a  onclick="jumpProfile()" href="${hrefProt}">profile</a></li></ul>
+        <a href="#" onclick="window.location.href =\'main_page.html\' "><i class="fa fa-fw fa-sign-out"></i>Logout</a> `;
     iconDiv.innerHTML=multilines
     // myBar.removeChild(icon);
     myBar.appendChild(iconDiv);

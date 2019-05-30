@@ -91,6 +91,8 @@ a{
   display:flex;
   align-items: center;
   text-decoration: none;
+  color: #4E2A84;
+
 }
 .back{
   font-size:25px;
@@ -182,10 +184,11 @@ label{
   right: 150px;
   border-style: solid;
   width:50px;
-  height:18px;
+  height:20px;
   border-width:2px;
   border-radius: 4px;
   text-align:center;
+  padding-left: 7px;
 }
 
 span{
@@ -193,10 +196,11 @@ span{
   right: 80px;
   border-style: solid;
   width:50px;
-  height:18px;
+  height:20px;
   border-width:2px;
   border-radius: 4px;
   text-align:center;
+  padding-left:2px;
 }
 
 

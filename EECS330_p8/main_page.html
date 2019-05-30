@@ -20,6 +20,7 @@
         var params = (window.location.hash.substring(1)).split("&");
         var showButton = false
         var showNewPost = false
+        var showNewPostButton=true
         if (params[0] == 'Signed'){
           showButton = true;            
           userName = params[1];  
@@ -60,7 +61,7 @@
     <button class = "tagname">Daily</button>
     <button class = "tagname" id="tagOthers">Others</button>
     <script type = "text/javascript">
-     	if(showButton == true){
+     	if(showNewPostButton == true){
      		var postbtn = document.createElement("BUTTON");
      		postbtn.onclick =function jumpToNewPostPage() {
               window.location.href = 'post_page.html' + '#' +'Signed&' +userName;}

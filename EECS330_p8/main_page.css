@@ -1,0 +1,158 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: rgb(176, 183, 187) ;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  color: white;
+  background-color: #4E2A84;
+}
+
+
+
+
+.body{
+  background-color: #E4E0EE;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#head-bar{
+	width: 100%;
+	height: 80px;
+	background-color:#4E2A84;
+	/* text-shadow: 3px 2px black; */
+}
+.clearfix::after{
+	clear:both;
+
+}
+.head-left{
+  /* float:left;
+  width:80%;
+  text-align: center;
+  color:#FFFFFF;
+  font-size:40px;
+	margin-top:10px; */
+  padding-top:15px;
+  color:#FFFFFF;
+  font-size:30px;  
+  text-align:center;
+
+}
+
+.head-right{
+  margin-right: 30px;
+  float:right;
+  margin-top:-35px;
+
+}
+
+
+.head-right .login-button {
+	width:150px;
+	height:60px;
+  background-color: #4E2A84;
+  border-radius:10px;
+  font-size:15px;
+  font-weight: bold;
+  color:#FFFFFF;
+  
+}
+
+.back-button {
+	border-style: inset;
+	float: right;
+	background-color: darkgray;
+	height: 25px;
+	width: 30px;
+	padding: 3px;
+	margin-top: 5px;
+	margin-left: 5px;	
+}
+
+
+.logout-button {
+  /* float:right;
+  margin-right: -50px;
+  margin-top:10px; */
+	width:150px;
+	height:60px;
+  	background-color: #4E2A84;
+  	border-radius:10px;
+    margin-left:10px;
+  	font-size:15px;
+  	font-weight: bold;
+  	color:#FFFFFF;
+}
+
+/* for tags */
+.tag{
+  margin:25px 250px 10px;
+}
+
+.tagname{
+  margin: 0 5px;
+  width: 60px;
+  height: 30px;
+  background-color: rgb(79, 59, 140);
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #FFFFFF;
+  text-align:center;
+}
+
+/* for posts */
+.post{
+  background-color: rgb(131, 110, 170,0.2) ;
+  margin: 0 250px 20px;
+  margin-top: 25px;
+  width: 60%;
+  height: 130px;
+  border-radius: 4px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+ span{
+  font-weight: bold;
+  font-size: 17px;
+  padding: 4px;
+  color:#4E2A84;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+  .post-title{
+  margin-left:10px;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+
+}
+
+.author {
+ padding-bottom: ;
+padding-left:80%;
+}
+
+#newpost{
+  background-color: rgb(79, 59, 140);
+  border:none;
+  border-radius: 10px;
+  font-weight:bold;
+  font-size: 18px;
+  color:#FFFFFF;
+  width: 150px;
+  height: 50px;
+  margin-left: 330px;
+}
+
+
+

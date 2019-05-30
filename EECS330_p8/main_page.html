@@ -1,0 +1,102 @@
+
+<html>
+<head>
+  <title>NU Freelance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="main_page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <script src = "main_page.js"></script>
+  <script>
+        var userName = ''
+        var params = (window.location.hash.substring(1)).split("&");
+        var showButton = false
+        var showNewPost = false
+        var showNewPostButton=true
+        if (params[0] == 'Signed'){
+          showButton = true;            
+          userName = params[1];  
+          if(params.length >2){
+          showNewPost = true;
+           }           
+        }
+        else {userName = '' }
+      
+    </script>
+</head>
+
+<body class = 'body'>
+    
+  <div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class="navbar head-right" id="my-bar">
+        <script>
+            editNav(userName)
+          </script>
+        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>Qinjie <i class="fa fa-caret-down"></i></a> 
+        <ul class="dropdown-menu">
+            <li><a onclick="test()" href="#">profile</a></li>
+        </ul>
+        <a href="#"><i class="fa fa-fw fa-sign-out"></i>Logout</a>  -->
+        <!-- <a href="#" onclick="window.location.href = 'login_in.html'"><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a> -->
+        <!-- <a href="#" id="signup-icon" onclick="editNav()"><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a> -->
+      </div>
+</div>
+<!-- posts -->
+<div class = "tag">
+    <label class = "category">
+    <button class = "tagname">All</button>
+    <button class = "tagname">Study</button>
+    <button class = "tagname">Casual</button>
+    <button class = "tagname">Daily</button>
+    <button class = "tagname" id="tagOthers">Others</button>
+    <script type = "text/javascript">
+     	if(showNewPostButton == true){
+     		var postbtn = document.createElement("BUTTON");
+     		postbtn.onclick =function jumpToNewPostPage() {
+          if(userName==''){
+            console.log("empty user")
+            alert("please login first")
+            //return false
+          }
+          else{window.location.href = 'post_page.html' + '#' +'Signed&' +userName;}}
+     		postbtn.innerHTML = "NEW POST";
+     		postbtn.id ="newpost";
+     		//tagOthers = document.getElementById("tagOthers")
+  			//document.body.insertAfter(postbtn, tagOthers); 
+     		document.getElementById("tagOthers").parentNode.appendChild(postbtn);
+     	}
+     </script>
+    </label>
+    </div>
+    <div class = "userpost" id="userpost" >
+     <form>
+     <div class = "post"><span>Study</span><label class = "post-title">Good Math Tutor Every M/W/F!!!</label>
+     <p>I am a senior math major student and I can definitely help you with your math homework. I have taken the following courses....Feel free to contact me...</p>
+     <p class= "author"> Post by Lily</p></div>
+     <div class = "post"><span>Causal</span><label class = "post-title">Music Tutor for Vocal/Piano/Violin</label>
+     <p>This is just text for filling out blank space.............</p>
+     <p class= "author"> Post by Joe</p></div>
+     </form>
+ 
+    </div>
+    <div id = "posts">
+        <script>
+            if (showNewPost == true){
+            addPost(params[2],params[3],params[1]);}
+        </script>
+    </div>
+
+</body>
+</html>
+

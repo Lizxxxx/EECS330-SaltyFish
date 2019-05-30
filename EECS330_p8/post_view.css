@@ -1,4 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: rgb(176, 183, 187) ;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  color: white;
+  background-color: #4E2A84;
+}
 
 
 .body{

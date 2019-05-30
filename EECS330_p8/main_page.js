@@ -77,11 +77,12 @@ var newSpanDelete=document.createElement("span");
 newSpanDelete.onclick=function(){
 //delete a post in local storage and refresh
 deletePost.call(this,titleKey);
-//window.location.href = 'user_profile.html' + '#' +'Signed&' +userName;
+window.location.reload()
 }
 var deleteA=document.createElement("a"); 
 deleteA.textContent="Delete"
-deleteA.href = "user_profile.html#Signed&"+userName+'&'+titleKey;
+// deleteA.href = "user_profile.html#Signed&"+userName+'&'+titleKey;
+deleteA.href = "user_profile.html#Signed&"+userName;
 newSpanDelete.appendChild(deleteA)
 
 newli.appendChild(newSpanDelete);

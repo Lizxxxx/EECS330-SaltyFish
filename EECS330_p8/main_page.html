@@ -64,7 +64,12 @@
      	if(showNewPostButton == true){
      		var postbtn = document.createElement("BUTTON");
      		postbtn.onclick =function jumpToNewPostPage() {
-              window.location.href = 'post_page.html' + '#' +'Signed&' +userName;}
+          if(userName==''){
+            console.log("empty user")
+            alert("please login first")
+            //return false
+          }
+          else{window.location.href = 'post_page.html' + '#' +'Signed&' +userName;}}
      		postbtn.innerHTML = "NEW POST";
      		postbtn.id ="newpost";
      		//tagOthers = document.getElementById("tagOthers")

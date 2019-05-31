@@ -1,0 +1,82 @@
+
+<head>
+  <title>User Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="user_profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+   <script src = "main_page.js"></script>
+   <script>
+         var userName = ''
+         var params = (window.location.hash.substring(1)).split("&");
+         var showButton = false
+         var showNewPost = false
+         if (params[0] == 'Signed'){
+           showButton = true;            
+           userName = params[1];            
+         }
+         else {userName = '' }      
+     </script>
+
+</head>
+
+<body class = 'body'>
+    
+  <div id="head-bar">
+    <div class = "clearfix">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class="navbar head-right" id="my-bar">
+      <script>
+          editNav(userName)
+        </script>
+    </div>
+  </div>
+</div>
+<!-- posts -->
+<div class = "profile">
+  <div class = "back" onclick="jumpBackToMainPage()">
+        <a href="#">        
+            <i class = "material-icons md-36">arrow_back</i>Back
+          </a>
+  </div>
+  <div id = "userwindow">
+    <div class = "upper">
+      <div class = "user">
+        <i class = "material-icons md-60">person</i><script type="text/javascript">document.write(userName)</script></div>
+      <div class = "mypost">My Posts</div>
+    </div>
+    <div class = "lower">
+      <div class = "innerwindow">
+        <ul id="user_posts">
+        <!-- <li>Good Math Tutor Every M/W/F!!!<label>Edit</label><span>View</span></li>
+        <li>Music Tutoring During Weekends!!!<label>Edit</label><span>View</span></li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript"> 
+  res=getProfile(userName);
+  var postList =res.postList;
+  for (i = 0; i < postList.length; i++) {
+    showPost(postList[i].title,userName,postList[i].titleKey);
+  }
+function jumpBackToMainPage(){
+  window.location.href = 'main_page.html' + '#' +'Signed&' +userName
+}
+  </script>
+
+</body>
+</html>
+

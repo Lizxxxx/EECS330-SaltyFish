@@ -93,7 +93,7 @@
 
 /* for tags */
 .tag{
-  margin:25px 250px 10px;
+  margin:25px 300px 10px;
 }
 
 .tagname{
@@ -111,7 +111,7 @@
 /* for posts */
 .post{
   background-color: rgb(131, 110, 170,0.2) ;
-  margin: 0 250px 20px;
+  margin: 0 70px 20px;
   margin-top: 25px;
   width: 60%;
   height: 130px;
@@ -154,5 +154,52 @@ padding-left:80%;
   margin-left: 330px;
 }
 
+.filter{
+ padding-left: 50px;
+ font-weight:bolder;
+}
+.left{
+  float: left;
+  width:15%;
+  padding-left: 40px;
+}
+
+.right{
+  float:right;
+  width:85%;
+
+}
+
+.left p{
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.left input{
+  margin-right: 5px;
+}
+
+.apply{
+  margin-left: 30px;
+  background-color: #4E2A84;
+  width: 80px;
+  height: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #E4E0EE;
+  border-radius: 3px;
+  font-weight: bolder;
+}
+
+.clear{
+  margin-left: 30px;
+  background-color: #4E2A84;
+  width: 80px;
+  height: 20px;
+  text-align: center;
+  color: #E4E0EE;
+  border-radius: 3px;
+  font-weight:bolder;
+}
 
 

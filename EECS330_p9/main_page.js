@@ -1,5 +1,5 @@
 //document.body.onload = addElement;
- 
+ var CurrentPosts=[]
 class UserProfile {
   constructor(name) {
       this.name = name;
@@ -52,13 +52,17 @@ class PostInfo
   }
 }
 
-function addPost (postText,Content,userName)  {  
+function addPost (postText,Content,Tags,userName)  {  
   var newDiv = document.createElement("div");  
   newDiv.setAttribute('class', 'post');
   // add post's category
-  var category = document.createElement("SPAN");
-  category.textContent = 'Daily';
-  newDiv.appendChild(category); 
+  var i=0
+  for(i;i<Tags.length;i++)
+  {
+    var category = document.createElement("SPAN");
+    category.textContent = Tags[i];
+    newDiv.appendChild(category); 
+  }
   // add post's Title
   var title = document.createElement("LABEL");
   title.textContent = postText;
@@ -77,8 +81,11 @@ function addPost (postText,Content,userName)  {
 
   //add one post div
   //document.getElementById("posts").appendChild(newDiv);
-  defaultPosts = document.getElementById("userpost")
-  document.body.insertBefore(newDiv, defaultPosts); 
+  // defaultPosts = document.getElementById("userpost")
+  // document.body.insertBefore(newDiv, defaultPosts); 
+  defaultPosts = document.getElementById("postMenu")
+  // defaultPosts.insertBefore(newDiv,defaultPosts.childNodes[0])
+  defaultPosts.appendChild(newDiv)
 }
 
 //this function is for user_profile page to show user's posts
@@ -369,4 +376,138 @@ function exampleTest()
   var posts6 = filterBySchedule(posts5,schInfo)
   console.log("filtered by Schedule",schInfo,": ",posts6)
 
+}
+function dispalyAllPosts()
+{
+  var postList =allStorage();
+  displayPosts(postList)
+  // var i=postList.length-1;
+  // for(i;i>=0;i--)
+  // {
+  //   var tempPost = postList[i]
+  //   // console.log(tempPost.title,tempPost.content,tempPost.getUSer())
+  //   addPost (tempPost.title,tempPost.content,tempPost.getUSer())  
+  // }
+
+}
+function displayPosts(postList)
+{
+  blockPosts();
+  var i=0;
+  for(i;i<postList.length;i++)
+  {
+    var tempPost = postList[i]
+    // console.log(tempPost.title,tempPost.content,tempPost.getUSer())
+    addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer())  
+  }
+  CurrentPosts = postList
+}
+function blockPosts()
+{
+  var myNode = document.getElementById("postMenu");
+while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+}
+}
+function displayFiltered()
+{
+  var DayState = document.getElementById("filterDay").checked
+  var EmailState = document.getElementById("filterEmail").checked
+  var CashState = document.getElementById("filterCash").checked
+  var VenmoState = document.getElementById("filterVenmo").checked
+  var wDayState = document.getElementById("filterWeekends").checked
+
+  var filteredPosts = CurrentPosts
+  if(DayState)
+  {
+    filteredPosts=filterByDay(filteredPosts,3)
+  }
+  if(EmailState)
+  {
+    filteredPosts = filterByContact(filteredPosts,"email")
+  }
+  if(CashState)
+  {
+    filteredPosts = filterByPayment(filteredPosts,"Cash")
+  }
+  if(VenmoState)
+  {
+    filteredPosts = filterByPayment(filteredPosts,"Venmo/Paypal")
+  }
+  if(wDayState)
+  {
+    filteredPosts = filterBySchedule(filteredPosts,"Weekends")
+  }
+  displayPosts(filteredPosts)
+  // console.log("checkBox state",DayState,EmailState,CashState,VenmoState,wDayState)
+}
+function clearFilter()
+{
+  document.getElementById("filterDay").checked=false
+  document.getElementById("filterEmail").checked=false
+  document.getElementById("filterCash").checked=false
+  document.getElementById("filterVenmo").checked=false
+  document.getElementById("filterWeekends").checked=false
+  applyFilter()
+}
+function dispalyCategoryPost()
+{
+  // toggleColor(btn)
+  // var btnValue = btn.innerHTML
+  // if(btnValue!="All")
+  // {
+  //   var filteredPosts = CurrentPosts
+  //   filteredPosts = filterByCategory(filteredPosts,btnValue)
+  //   displayPosts(filteredPosts)
+  //   console.log("button value:",btnValue)
+  // }
+  // else
+  // {
+  //   dispalyAllPosts()
+  // }
+  var btns = document.getElementsByClassName("tagname")
+  var i=0;
+  // var filteredPosts = allStorage();
+  var filteredPosts = CurrentPosts;
+  var NoneTag=true
+  for(i;i<btns.length;i++)
+  {
+    console.log("btn value:" ,btns[i].innerHTML)
+    var bgc = btns[i].style.backgroundColor;
+    var btnValue = btns[i].innerHTML;
+    if (bgc == "rgba(79, 59, 140, 0.9)" && btnValue!="All") { 
+        filteredPosts = filterByCategory(filteredPosts,btnValue)
+        displayPosts(filteredPosts)
+        NoneTag = false
+    }
+  }
+  if(NoneTag){
+    var alltag = document.getElementById("all-tag")
+    alltag.style.background = "rgba(79, 59, 140, 90%)";
+    dispalyAllPosts();
+  }
+}
+function toggleColor(id) {
+  var bgc = id.style.backgroundColor;
+  if (bgc == "rgba(79, 59, 140, 0.9)") { 
+    // console.log(bgc,"toggle to 30")
+      id.style.background = "rgba(79, 59, 140, 30%)";
+  } else {
+    // console.log(bgc,"toggleto 100")
+      id.style.background = "rgba(79, 59, 140, 90%)";
+  }
+
+}
+function tagBtnToggle(btn)
+{
+  toggleColor(btn)
+  CurrentPosts = allStorage()
+  dispalyCategoryPost() 
+  displayFiltered()
+}
+function applyFilter()
+{
+  CurrentPosts = allStorage()
+  dispalyCategoryPost()
+  displayFiltered()
 }

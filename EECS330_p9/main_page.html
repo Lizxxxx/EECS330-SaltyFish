@@ -53,38 +53,8 @@
       </div>
 </div>
 <!-- posts -->
-<div class = "tag">
-    <label class = "category" id="tagOthers">
-    <label class ="tagID"><button class = "tagname" id="all-tag" onclick="tagBtnToggle(this)">All</button></label>
-    <label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Study</button></label>
-    <label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Casual</button></label>
-    <label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Daily</button></label>
-    <label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Others</button></label>
-    <script>
-          var alltag = document.getElementById("all-tag")
-          toggleColor(alltag)
-    </script>
-    <script type = "text/javascript">
-      if(showNewPostButton == true){
-        var postbtn = document.createElement("BUTTON");
-        postbtn.onclick =function jumpToNewPostPage() {
-         if(userName==''){
-           console.log("empty user")
-           alert("please login first")
-           //return false
-         }
-         else{window.location.href = 'post_page.html' + '#' +'Signed&' +userName;}}
-        postbtn.innerHTML = "NEW POST";
-        postbtn.id ="newpost";
-        //tagOthers = document.getElementById("tagOthers")
-       //document.body.insertAfter(postbtn, tagOthers); 
-        document.getElementById("tagOthers").parentNode.appendChild(postbtn);
-      }
-    </script>
-  </label>
-</div>
-<div class = "userpost" id="userpost" >
-     <div class = "left" >
+<div id = "main_page_wrapper">
+	<div class = "left" >
      		<p class = "filter">Filter</p>
          <label class="container">Posts in 3 Days
           <input type="checkbox" id="filterDay">
@@ -111,22 +81,56 @@
             	<button class = "apply" onclick="clearFilter()">Clear</button>
             </div>
      </div>
-    <div class = "right">
-     <div id="postMenu">
-      <script>
+      <div class = "right">
+        <div class = "tag">
+            <label class = "category" id="tagOthers">
+    				<label class ="tagID"><button class = "tagname" id="all-tag" onclick="tagBtnToggle(this)">All</button></label>
+    				<label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Study</button></label>
+    				<label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Casual</button></label>
+    				<label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Daily</button></label>
+    				<label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Others</button></label>
+    				<script>
+          				var alltag = document.getElementById("all-tag")
+          				toggleColor(alltag)
+    				</script>
+    				<script type = "text/javascript">
+      						if(showNewPostButton == true){
+        				var postbtn = document.createElement("BUTTON");
+        				postbtn.onclick =function jumpToNewPostPage() {
+         					if(userName==''){
+           						console.log("empty user")
+           						alert("please login first")
+           //return false
+         						}
+         						else{window.location.href = 'post_page.html' + '#' +'Signed&' +userName;}}
+        						postbtn.innerHTML = "NEW POST";
+        						postbtn.id ="newpost";
+        //tagOthers = document.getElementById("tagOthers")
+       //document.body.insertAfter(postbtn, tagOthers); 
+        						document.getElementById("tagOthers").parentNode.appendChild(postbtn);
+      						}
+    				</script>
+    		</label>
+  			
+		</div>
+		<div class = "userpost" id="userpost" >
+     		<div id="postMenu">
+      		<script>
             // if (showNewPost == true){
             // addPost(params[2],params[3],params[1]);}
             dispalyAllPosts();
-      </script>
-     <div class = "post"><span>Study</span><label class = "post-title">Good Math Tutor Every M/W/F!!!</label>
-     <p>I am a senior math major student and I can definitely help you with your math homework. I have taken the following courses....Feel free to contact me...</p>
-     <p class= "author"> Post by Lily</p></div>
-     <div class = "post"><span>Causal</span><label class = "post-title">Music Tutor for Vocal/Piano/Violin</label>
-     <p>This is just text for filling out blank space.............</p>
-     <p class= "author"> Post by Joe</p></div>
-     </div>
-    </div>
-    </div>
+      	</script>
+     	<div class = "post"><span>Study</span><label class = "post-title">Good Math Tutor Every M/W/F!!!</label>
+     	<p>I am a senior math major student and I can definitely help you with your math homework. I have taken the following 	courses....Feel free to contact me...</p>
+     	<p class= "author"> Post by Lily</p></div>
+     	<div class = "post"><span>Causal</span><label class = "post-title">Music Tutor for Vocal/Piano/Violin</label>
+     	<p>This is just text for filling out blank space.............</p>
+     	<p class= "author"> Post by Joe</p></div>
+     	</div>
+    	</div>
+    	</div>
+         
+ </div>
 
 </body>
 </html>

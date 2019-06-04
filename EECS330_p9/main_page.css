@@ -92,12 +92,21 @@
 }
 
 /* for tags */
+#main_page_wrapper{
+
+
+}
+.category{
+  background-color:none;
+  width: 50%;
+  height: 50px;
+}
 .tag{
-  margin:25px 300px 10px;
+  margin:25px 70px 10px;
 }
 
 .tagname{
-  margin: 0 5px;
+  margin: 10px 0;
   width: 60px;
   height: 30px;
   background-color: rgba(79, 59, 140,30%);
@@ -118,7 +127,7 @@
   background-color: rgb(131, 110, 170,0.2) ;
   margin: 0 70px 20px;
   margin-top: 25px;
-  width: 60%;
+  width: 75%;
   height: 130px;
   border-radius: 4px;
   padding-top: 30px;
@@ -156,26 +165,28 @@ padding-left:80%;
   font-weight:bold;
   font-size: 18px;
   color:#FFFFFF;
-  width: 150px;
+  width: 140px;
   height: 50px;
-  margin-left: 300px;
+  float:right;
+  margin-right: 165px;
 }
 
 .filter{
- padding-left: 20px;
+ padding-left: 50px;
  font-weight:bolder;
  font-size: 15px;
 
 }
 .left{
   float: left;
-  width:15%;
-  padding-left: 40px;
+  width:20%;
+  padding-left: 80px;
+  padding-top:100px;
 }
 
 .right{
   float:right;
-  width:85%;
+  width:80%;
 
 }
 
@@ -189,7 +200,7 @@ padding-left:80%;
 }
 
 .apply{
-  margin: 0 5px;
+  margin: 0;
   width: 60px;
   height: 30px;
   background-color: rgba(79, 59, 140,100%);

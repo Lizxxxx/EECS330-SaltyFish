@@ -141,7 +141,7 @@
 }
 
 .choice{
-  background-color:rgb(131, 110, 170,0.7);
+  background-color:rgba(79, 59, 140, 30%);
   text-align: center;
   height: 25px;
   border:none;
@@ -151,11 +151,13 @@
   width:70px;
   margin-top: 0px;
   box-shadow: none;
+  color:black;
+
   /* box-shadow: 0 0 5px 1px red; */
 }
 
 .choice:hover {
-  background-color: #4E2A84;
+  background-color:rgba(79, 59, 140, 70%);
 }
 
 .infoform{

@@ -64,7 +64,7 @@
           <input class = "infoform" type = "text" name = "emailInfo" id="email-input" onclick="changeInfoShadow()">
           <!-- <input class = "infoform" type = text name = "fillemail"> -->
           Phone
-          <input class = "infoform" type = "text" name = "PhoneInfo" onclick="changeInfoShadow()">
+          <input class = "infoform" type = "text" name = "PhoneInfo" id="phone-input" onclick="changeInfoShadow()">
           <!-- <input class = "infoform" type = text name = "fillphone"> -->
           Other
           <input class = "infoform" type = "text" name = "OtherInfo"onclick="changeInfoShadow()">
@@ -135,12 +135,13 @@ var userCategory = [];
   }
   function changeColor(label)
   {
-    var borderSize  = '2px solid';
-    if((label.style.border != borderSize) )
+    toggleOff()
+    var bgc = label.style.backgroundColor;
+    if(!(bgc == "rgba(79, 59, 140, 0.9)") )
     {
+      label.style.background = "rgba(79, 59, 140, 90%)";
       label.checked = true
-      label.style.border = borderSize ;
-      // var choices = document.getElementsByName("choice")
+      // label.style.border = borderSize ;
       var choices = document.getElementsByClassName("choice");
 
       for (i = 0; i < choices.length; i++) {
@@ -152,7 +153,8 @@ var userCategory = [];
     }
     else{
       label.checked = false
-      label.style.border = "none" ;
+      label.style.background = "rgba(79, 59, 140, 30%)";
+      // label.style.border = "none" ;
       console.log("turn to none",label.checked);
       var index = userCategory.indexOf(label.textContent);
       if (index > -1) {
@@ -161,6 +163,24 @@ var userCategory = [];
       console.log(userCategory)
     }
   }
+  function toggleOff()
+{
+  var btns = document.getElementsByClassName("choice")
+  // console.log("toggle off length",btns.length)
+  var i=0
+  for(i;i<btns.length;i++)
+  {
+    if(btns[i].checked){
+      btns[i].checked = false
+      btns[i].style.background = "rgba(79, 59, 140, 30%)";
+      // label.style.border = "none" ;
+      console.log("turn to none",btns[i].checked);
+      var index = userCategory.indexOf(btns[i].textContent);
+      if (index > -1) {
+        userCategory.splice(index, 1);
+      }    }
+  }
+}
 
   document.getElementById('post-form').onsubmit= function(e){
     e.preventDefault();
@@ -169,8 +189,9 @@ var userCategory = [];
     TitleFlag = checkTitle();
     ContentFlag = checkContent();
     EmailFlag = checkEmail();
+    PhoneFlag = isPhoneValid();
     console.log(choiceFlag,infoFlag,TitleFlag,ContentFlag,EmailFlag);
-    if(choiceFlag && infoFlag  &&TitleFlag && ContentFlag &&EmailFlag)
+    if(choiceFlag && infoFlag  &&TitleFlag && ContentFlag &&EmailFlag &&PhoneFlag)
     {
       console.log("submit form");
       if(confirm("are you sure to post?"))
@@ -301,6 +322,26 @@ function checkEmail()
     console.log('invalid email address')
     alert("invalid email address")
     infos.style.boxShadow =  ' 0 0 5px 1px red ';
+    return false
+  }
+}
+function isPhoneValid() {
+  var p = document.getElementById("phone-input").value
+  if(p == '')
+  {
+    return true
+  }
+  var phoneRe = /^[2-9]\d{2}[2-9]\d{2}\d{4}$/;
+  var digits = p.replace(/\D/g, "");
+  var res =  phoneRe.test(digits);
+  console.log(p,"is valid?:",res)
+  if(res)
+  {
+    return true
+  }
+  else{
+    alert("invalid phone number")
+    document.getElementById("phone-input").style.boxShadow =  ' 0 0 5px 1px red ';
     return false
   }
 }

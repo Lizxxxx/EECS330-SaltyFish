@@ -50,11 +50,31 @@ class PostInfo
     }
     return targetList
   }
+  getContactInfo()
+  {
+    if(this.email!="")
+    {
+      return this.email
+    }
+    if(this.phone != "")
+    {
+      return this.phone
+    }
+    if(this.otherContact !="")
+    {
+      return this.categories.otherContact
+    } 
+  }
 }
 
-function addPost (postText,Content,Tags,userName)  {  
+function addPost (postText,Content,Tags,userName,titleKey)  {  
   var newDiv = document.createElement("div");  
   newDiv.setAttribute('class', 'post');
+  // newDiv.onclick = postClick;
+  newDiv.setAttribute("onclick", "postClick(this)");
+  newDiv.setAttribute("name", titleKey);
+
+  // newDiv.addEventListener('click', postClick());
   // add post's category
   var i=0
   for(i;i<Tags.length;i++)
@@ -107,8 +127,11 @@ var newSpanDelete=document.createElement("span");
 //newSpanDelete.textContent = "Delete";
 newSpanDelete.onclick=function(){
 //delete a post in local storage and refresh
-deletePost.call(this,titleKey);
-window.location.reload()
+if(confirm("Are you sure to delete the post?"))
+{
+  deletePost.call(this,titleKey);
+  window.location.reload()
+}
 }
 var deleteA=document.createElement("a"); 
 deleteA.textContent="Delete"
@@ -398,7 +421,7 @@ function displayPosts(postList)
   {
     var tempPost = postList[i]
     // console.log(tempPost.title,tempPost.content,tempPost.getUSer())
-    addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer())  
+    addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer(),tempPost.titleKey)  
   }
   CurrentPosts = postList
 }
@@ -472,7 +495,7 @@ function dispalyCategoryPost()
   var NoneTag=true
   for(i;i<btns.length;i++)
   {
-    console.log("btn value:" ,btns[i].innerHTML)
+    // console.log("btn value:" ,btns[i].innerHTML)
     var bgc = btns[i].style.backgroundColor;
     var btnValue = btns[i].innerHTML;
     if (bgc == "rgba(79, 59, 140, 0.9)" && btnValue!="All") { 
@@ -482,8 +505,8 @@ function dispalyCategoryPost()
     }
   }
   if(NoneTag){
-    var alltag = document.getElementById("all-tag")
-    alltag.style.background = "rgba(79, 59, 140, 90%)";
+    // var alltag = document.getElementById("all-tag")
+    // alltag.style.background = "rgba(79, 59, 140, 90%)";
     dispalyAllPosts();
   }
 }
@@ -496,10 +519,24 @@ function toggleColor(id) {
     // console.log(bgc,"toggleto 100")
       id.style.background = "rgba(79, 59, 140, 90%)";
   }
-
+  console.log("toggle on",id.innerHTML)
+}
+function toggleOff(btn)
+{
+  var btns = document.getElementsByClassName("tagname")
+  // console.log("toggle off length",btns.length)
+  var i=0
+  for(i;i<btns.length;i++)
+  {
+    if(btns[i].innerHTML != btn.innerHTML){
+      btns[i].style.background = "rgba(79, 59, 140, 30%)";
+    }
+    // console.log("toggle off",btns[i].innerHTML)
+  }
 }
 function tagBtnToggle(btn)
 {
+  toggleOff(btn)
   toggleColor(btn)
   CurrentPosts = allStorage()
   dispalyCategoryPost() 
@@ -511,3 +548,48 @@ function applyFilter()
   dispalyCategoryPost()
   displayFiltered()
 }
+function postClick(myDiv)
+{
+  console.log("postClick",myDiv.getAttribute('name'))
+  var mykey = myDiv.getAttribute('name')
+  var infos = mykey.split("-")
+  var infoUser = infos[0]
+  window.location.href = "post_info.html#Signed&"+userName+'&'+mykey;
+}
+function pageShow(pg)
+{
+  var num = pg.innerHTML;
+  // postList = CurrentPosts
+  // displayPosts(postList.splice((num-1)*4,num*4))
+  // pg.setAttribute('class','active')
+}
+function createPage(num)
+{
+  var numP = num/4 + 1;
+  var i=0
+  menu = document.getElementById("page-menu")
+  if(menu)
+  {
+    while (menu.firstChild) {
+      menu.removeChild(menu.firstChild);}
+    // console.log(numP)
+    for(i;i<numP;i++)
+    {
+      var newDiv = document.createElement("a"); 
+      newDiv.setAttribute('onclick','pageShow(this)')
+      newDiv.setAttribute('href','#')
+      newDiv.innerHTML=i
+      menu.appendChild(newDiv)
+    }
+  }
+}
+function jumpMainpage()
+{
+  window.location.href = 'main_page.html' + '#' + 'Signed&' +userName;     
+}
+// function displayLogin()
+// {
+//   logPage = document.getElementById("login-page")
+//   postPage = document.getElementById("main_page_wrapper")
+//   logPage.style.Dis
+// }

@@ -31,6 +31,20 @@ h1 {
 }
 
 .head-left{
+  padding-top:15px;
+  color:#FFFFFF;
+  font-size:30px;  
+  text-align:center;
+
+}
+
+.head-right{
+  margin-right: 30px;
+  float:right;
+  margin-top:-35px;
+
+}
+/* .head-left{
   text-align: center;
   padding-top:15px;
   color:#FFFFFF;
@@ -42,7 +56,7 @@ h1 {
   float:right;
   width:20%;
 
-}
+} */
 
 .login-button {
 	width:150px;

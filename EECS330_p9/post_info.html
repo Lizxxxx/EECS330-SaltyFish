@@ -23,6 +23,7 @@
       userName = params[1];  
       titleKey=  params[2];
       titleKey = titleKey.replace(/%20/g, " ");
+      console.log("here is the key",titleKey)
       var res=getPostClass(titleKey);
     }
     else {userName = '' } 
@@ -50,7 +51,7 @@
             <i class = "material-icons md-36">arrow_back</i>Back
           </a>
   </div> -->
-  <div class = "back" onclick="jumpProfile()">
+  <div class = "back" onclick="jumpMainpage()">
     <a href="#">        
         <i class = "material-icons md-36">arrow_back</i>Back
       </a>

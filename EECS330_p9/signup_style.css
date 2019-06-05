@@ -104,6 +104,8 @@ h1 {
   background-color: #E4E0EE;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-y:scroll;
+
 }
 
 

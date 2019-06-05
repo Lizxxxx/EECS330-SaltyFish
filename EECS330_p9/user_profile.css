@@ -17,6 +17,8 @@
   background-color: #E4E0EE;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-y:scroll;
+
 }
 #head-bar{
 	width: 100%;

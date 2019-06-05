@@ -90,28 +90,32 @@
 a{
   display:flex;
   align-items: center;
-  text-decoration: none;
+  color:#4E2A84;
 }
 .back{
   font-size:25px;
   display:flex;
   align-items:center;
-  margin-left:100px;
+  margin-left:300px;
   margin-top:20px;
   font-weight:bolder;
   color:#4E2A84;
 }
 
-.material-icons.md-48{
+
+
+.material-icons.md-36{
  font-family:'Material Icons';
- font-weight: bold;
+ font-weight: bolder;
  font-size:48px;
+ color: #4E2A84 ;
 }
 
 .yourpost{
-  margin-left:100px;
+  margin-left:300px;
   position:relative;
   margin-top:20px;
+  border-radius: 5px;
   height: 300px;
   width: 60%;
   background-color: white;
@@ -143,34 +147,40 @@ a{
 }
 
 .contact-info{
-  margin-left: 100px;
-  margin-top: 20px;
+  margin-left: 300px;
+  margin-top: 30px;
   background-color:#B6ACD1; 
   width: 60%;
-  height: 20px;
-  padding-top: 3px;
-  color:  #716C6B;
+  height: 30px;
+  padding-top: 5px;
+  padding-left:10px;
+  color:  black;
   font-weight:bolder;
+  border-radius: 5px;
 }
 
 .payment-method{
-  margin-left: 100px;
-  margin-top: 20px;
+  margin-left: 300px;
+  margin-top: 30px;
   background-color:#B6ACD1; 
+  border-radius: 5px;
   width: 60%;
-  height: 20px;
-  padding-top: 3px;
-  color:  #716C6B;
+  height: 30px;
+  padding-top: 5px;
+  padding-left:10px;
+  color:  black;
   font-weight:bolder;
 }
 
 .schedule-option{
-  margin-left: 100px;
-  margin-top: 20px;
+  margin-left: 300px;
+  margin-top: 30px;
   background-color:#B6ACD1; 
   width: 60%;
-  height: 20px;
-  padding-top: 3px;
-  color: #716C6B;
+  height: 30px;
+  padding-top: 5px;
+  padding-left:10px;
+  color: black;
   font-weight:bolder;
+  border-radius: 5px;
 }

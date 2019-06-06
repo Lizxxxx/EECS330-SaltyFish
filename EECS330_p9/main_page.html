@@ -15,7 +15,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
   <script src = "main_page.js"></script>
-  <script>
+  <script src = "default_data.js"></script>
+<script>
         var userName = ''
         var params = (window.location.hash.substring(1)).split("&");
         var showButton = false
@@ -132,6 +133,7 @@
 </div>
 
 <script>
+    storeData();
     dispalyAllPosts();
 </script>
 </body>

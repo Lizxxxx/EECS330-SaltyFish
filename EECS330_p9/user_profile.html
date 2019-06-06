@@ -52,16 +52,31 @@
   <div id = "userwindow">
     <div class = "upper">
       <div class = "user">
-        <i class = "material-icons md-60">person</i><script type="text/javascript">document.write(userName)</script></div>
-      <div class = "mypost">My Posts</div>
+        <i class = "material-icons md-60">person</i><script type="text/javascript">document.write(userName)</script>
+      </div>
+      <div class = "tab">
+        <button class = "tablink" onclick = "choose_tab(event,'user_posts')">My Posts</button>
+        <button class = "tablink" onclick = "choose_tab(event,'password')">Change Your Password</button>
+      </div>
     </div>
     <div class = "lower">
-      <div class = "innerwindow">
-        <ul id="user_posts">
+      
+        <div id="user_posts" class = "tabcontent">
+          <div class = "innerwindow">
+          test
         <!-- <li>Good Math Tutor Every M/W/F!!!<label>Edit</label><span>View</span></li>
         <li>Music Tutoring During Weekends!!!<label>Edit</label><span>View</span></li> -->
-        </ul>
-      </div>
+          </div>
+        </div>
+        <div id = "password" class = "tabcontent">
+          <h5>Your Old Password</h5>
+          <input class = "old_password" type = "text" name = "old" id="user_old_password">
+          <h5>Your New Passowrd</h5>
+          <input class = "new_password" type = "text" name = "new" id="user_new_password">
+          <h5>Confirm Your New Password</h5>
+          <input class = "confirm_new_password" type = "text" name = "confirm_new" id="conform_user_new_password">
+
+        </div>
     </div>
   </div>
 </div>
@@ -74,6 +89,20 @@
   }
 function jumpBackToMainPage(){
   window.location.href = 'main_page.html' + '#' +'Signed&' +userName
+}
+
+function choose_tab(event, what_tab){
+  var i ,tabcontent, tablink;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length;i++){
+    tabcontent[i].style.display = "none";
+  }
+  tablink = document.getElementsByClassName("tablink");
+  for (i = 0;i < tablink.length; i++){
+    tablink[i].className = tablink[i].className.replace(" active","");
+  }
+  document.getElementById(what_tab).style.display = "block";
+  event.currentTarget.className += " active";
 }
   </script>
 

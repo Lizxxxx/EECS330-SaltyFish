@@ -1,0 +1,318 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: rgb(176, 183, 187) ;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  color: white;
+  background-color: #4E2A84;
+}
+
+
+
+
+.body{
+  background-color: #E4E0EE;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y:scroll;
+}
+#head-bar{
+  width: 100%;
+  /* width: ; */
+	height: 80px;
+	background-color:#4E2A84;
+	/* text-shadow: 3px 2px black; */
+}
+.clearfix::after{
+	clear:both;
+
+}
+.head-left{
+  /* float:left;
+  width:80%;
+  text-align: center;
+  color:#FFFFFF;
+  font-size:40px;
+	margin-top:10px; */
+  padding-top:15px;
+  color:#FFFFFF;
+  font-size:30px;  
+  text-align:center;
+
+}
+
+.head-right{
+  margin-right: 30px;
+  float:right;
+  margin-top:-35px;
+
+}
+
+
+.head-right .login-button {
+	width:150px;
+	height:60px;
+  background-color: #4E2A84;
+  border-radius:10px;
+  font-size:15px;
+  font-weight: bold;
+  color:#FFFFFF;
+  
+}
+
+.back-button {
+	border-style: inset;
+	float: right;
+	background-color: darkgray;
+	height: 25px;
+	width: 30px;
+	padding: 3px;
+	margin-top: 5px;
+	margin-left: 5px;	
+}
+
+
+.logout-button {
+  /* float:right;
+  margin-right: -50px;
+  margin-top:10px; */
+	width:150px;
+	height:60px;
+  	background-color: #4E2A84;
+  	border-radius:10px;
+    margin-left:10px;
+  	font-size:15px;
+  	font-weight: bold;
+  	color:#FFFFFF;
+}
+
+/* for tags */
+#main_page_wrapper{
+
+
+}
+.category{
+  background-color:none;
+  width: 50%;
+  height: 50px;
+}
+.tag{
+  margin:25px 70px 10px;
+}
+
+.tagname{
+  margin: 10px 0;
+  width: 60px;
+  height: 30px;
+  background-color: rgba(79, 59, 140,30%);
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #FFFFFF;
+  text-align:center;
+}
+
+.tagID:hover > button
+{
+  background-color: rgba(79, 59, 140,100%);
+}
+
+/* for posts */
+.post{
+  background-color: rgb(131, 110, 170,0.2) ;
+  margin: 0 70px 20px;
+  margin-top: 25px;
+  width: 75%;
+  height: 130px;
+  border-radius: 4px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+.post:hover
+{
+  cursor: pointer;
+}
+ 
+span{
+  font-weight: bold;
+  font-size: 17px;
+  padding: 4px;
+  color:#4E2A84;
+  border-style: solid;
+  border-radius: 4px;
+  margin-right: 3px;
+
+}
+
+  .post-title{
+  margin-left:10px;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+
+}
+
+.author {
+ padding-bottom: ;
+padding-left:70%;
+color: gray;
+float: right;
+margin-right: 25px;
+
+}
+
+.post-day
+{
+  /* margin-top: 10px; */
+  /* margin-right: 10px; */
+  text-align: right;
+  display: inline-block;
+  margin-right: 25px;
+  float: right;
+  color: gray;
+}
+
+#newpost{
+  background-color: rgb(79, 59, 140);
+  border:none;
+  border-radius: 10px;
+  font-weight:bold;
+  font-size: 18px;
+  color:#FFFFFF;
+  width: 140px;
+  height: 50px;
+  float:right;
+  margin-right: 165px;
+}
+
+.filter{
+ padding-left: 50px;
+ font-weight:bolder;
+ font-size: 15px;
+
+}
+.left{
+  float: left;
+  width:20%;
+  padding-left: 80px;
+  padding-top:100px;
+}
+
+.right{
+  float:right;
+  width:80%;
+
+}
+
+.left p{
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.left input{
+  margin-right: 5px;
+}
+
+.apply{
+  margin: 0;
+  width: 60px;
+  height: 30px;
+  background-color: rgba(79, 59, 140,100%);
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #FFFFFF;
+  text-align:center;
+}
+
+.clear{
+  margin-left: 30px;
+  background-color: #4E2A84;
+  width: 80px;
+  height: 20px;
+  text-align: center;
+  color: #E4E0EE;
+  border-radius: 3px;
+  font-weight:bolder;
+}
+
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #4E2A84;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 3px;
+  top: 1px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.post-menu
+{
+  height: 630px;
+}

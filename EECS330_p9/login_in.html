@@ -1,0 +1,95 @@
+<html>
+ <!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>Log In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="login_in.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="main_page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+
+  <script src = "main_page.js"></script>
+
+</head>
+
+<body class="body">
+
+  <div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class="navbar head-right" id="my-bar">
+        <script>
+            editNav("")
+          </script>
+    </div>
+  
+<div class="login-page">
+  <div class="form">
+    <h1>Welcome Back!</h1>
+    <form class="login-form" id = "login-form">
+        <div><input id="cancel-button" type="button" value="X" onclick="window.location.href='main_page.html'"></div>
+      <input class = "email" type="text" placeholder="User Name" id="user-name" required/>
+      <input class = "password" type="password" placeholder="Your Password" id="user-pw" required/>
+      <button type="submit" class="button" id="login-button">Log In</button>
+    </form>
+
+    <!-- <form class="login-form">
+      <button type="submit" class="button" id="login-button">Log In</button>
+    </form> -->
+    <div class="cta"><a href="signup.html">Click here to Sign Up!</a></div>
+  </div>
+</div>
+</div>
+<script>
+  function jumpToMainPage() {
+      var userEmail = document.getElementById("user-name").value
+      window.location.href = 'main_page.html' + '#' + 'Signed&' +userEmail;     
+  }
+  document.getElementById('login-form').onsubmit= function(e){
+      e.preventDefault();
+      pwFlag = checkUserInfo();
+      if(pwFlag)
+      {
+        jumpToMainPage()
+      }
+      else{
+      }      
+}
+function checkUserInfo()
+{
+  var userName = document.getElementById("user-name").value;
+  var usePW = document.getElementById("user-pw").value;
+  var userData = JSON.parse(localStorage.getItem(userName));
+  if(userData==null)
+  {
+    alert("unexited user !!!")
+    return false
+  }
+  else{
+    if(userData[2].value == usePW)
+    {
+      return true
+    }
+    else
+    {
+      alert("wrong password !!!")
+      return false
+    }
+  }
+}
+</script>
+</body>
+</html>

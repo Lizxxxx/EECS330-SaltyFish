@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>User Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="post_view.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+   <script src = "main_page.js"></script>
+   <script>
+    var userName = ''
+    var params = (window.location.hash.substring(1)).split("&");
+    var showButton = false
+    var showNewPost = false
+    if (params[0] == 'Signed'){
+      showButton = true;            
+      userName = params[1];  
+      titleKey=  params[2];
+      titleKey = titleKey.replace(/%20/g, " ");
+      console.log("here is the key",titleKey)
+      var res=getPostClass(titleKey);
+    }
+    else {userName = '' } 
+
+</script>
+</head>
+
+<body class = 'body'>
+    
+  <div id="head-bar">
+    <div class = "clearfix">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class="navbar head-right" id="my-bar">
+      <script>
+          editNav(userName)
+        </script>
+    </div>
+  </div>
+</div>
+<!-- posts -->
+<!-- <div class = "back">
+          <a href="main_page.html">         
+            <i class = "material-icons md-36">arrow_back</i>Back
+          </a>
+  </div> -->
+  <div class = "back" onclick="jumpMainpage()">
+    <a href="#">        
+        <i class = "material-icons md-36">arrow_back</i>Back
+      </a>
+  </div>
+<div class = "yourpost">
+	<div class = "title">
+    <label class = "study"><script>document.write(res.categories[0])</script></label>
+    <script type="text/javascript">document.write(res.title)</script>
+  </div>
+	<p class = "content">
+    <script type="text/javascript">document.write(res.content)</script>
+    </p>
+</div>
+<div class = "contact-info">
+  <span>Contact Information: <div class="info-bolder"><script type="text/javascript">document.write(res.getContactInfo())</script>
+    </div></span>
+</div>
+<div class = "payment-method">
+	Payment Method: <div class="info-bolder"><script type="text/javascript">document.write(res.payment)</script></div>
+</div>
+<div class = "schedule-option">
+	Schedule Options: <div class="info-bolder"><script type="text/javascript">document.write(res.getSche())</script></div>
+</div>
+</body>
+</html>

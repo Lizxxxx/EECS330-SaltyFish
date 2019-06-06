@@ -1,0 +1,181 @@
+
+<html>
+<head>
+  <title>NU Freelance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="main_page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <script src = "main_page.js"></script>
+  <script src = "default_data.js"></script>
+<script>
+        var userName = ''
+        var params = (window.location.hash.substring(1)).split("&");
+        var showButton = false
+        var showNewPost = false
+        var showNewPostButton=true
+        if (params[0] == 'Signed'){
+          showButton = true;            
+          userName = params[1];  
+          if(params.length >2){
+          showNewPost = true;
+           }           
+        }
+        else {userName = '' }
+      
+    </script>
+</head>
+
+<body class = 'body'>
+    
+  <div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class="navbar head-right" id="my-bar">
+        <script>
+            editNav(userName)
+          </script>
+        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>Qinjie <i class="fa fa-caret-down"></i></a> 
+        <ul class="dropdown-menu">
+            <li><a onclick="test()" href="#">profile</a></li>
+        </ul>
+        <a href="#"><i class="fa fa-fw fa-sign-out"></i>Logout</a>  -->
+        <!-- <a href="#" onclick="window.location.href = 'login_in.html'"><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a> -->
+        <!-- <a href="#" id="signup-icon" onclick="editNav()"><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a> -->
+      </div>
+</div>
+<!-- posts -->
+<div id = "main_page_wrapper">
+	<div class = "left" >
+     		<p class = "filter">Filter</p>
+         <label class="container">Posts in 3 Days
+          <input type="checkbox" id="filterDay">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">Contact by Email
+          <input type="checkbox" id="filterEmail">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">Pay in Cash
+          <input type="checkbox" id="filterCash">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">Pay in Venmo
+          <input type="checkbox" id= "filterVenmo">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">Avaiable in Weekends
+          <input type="checkbox" id="filterWeekends">
+          <span class="checkmark"></span>
+        </label>
+            <div >
+            	<button class = "apply" onclick="applyFilter()">Apply</button>
+            	<button class = "apply" onclick="clearFilter()">Clear</button>
+            </div>
+     </div>
+      <div class = "right">
+        <div class = "tag">
+            <label class = "category" id="tagOthers">
+    				<!-- <label class ="tagID"><button class = "tagname" id="all-tag" onclick="tagBtnToggle(this)">All</button></label> -->
+    				<label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Study</button></label>
+    				<label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Casual</button></label>
+    				<label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Daily</button></label>
+    				<label class ="tagID"><button class = "tagname" onclick="tagBtnToggle(this)">Others</button></label>
+    				<!-- <script>
+          				var alltag = document.getElementById("all-tag")
+          				toggleColor(alltag)
+    				</script> -->
+    				<script type = "text/javascript">
+      						if(showNewPostButton == true){
+        				var postbtn = document.createElement("BUTTON");
+        				postbtn.onclick =function jumpToNewPostPage() {
+         					if(userName==''){
+           						console.log("empty user")
+           						alert("please login first")
+           //return false
+         						}
+         						else{window.location.href = 'post_page.html' + '#' +'Signed&' +userName;}}
+        						postbtn.innerHTML = "NEW POST";
+        						postbtn.id ="newpost";
+        //tagOthers = document.getElementById("tagOthers")
+       //document.body.insertAfter(postbtn, tagOthers); 
+        						document.getElementById("tagOthers").parentNode.appendChild(postbtn);
+      						}
+    				</script>
+    		</label>
+  			
+		</div>
+		<div class = "userpost" id="userpost" >
+     		<div class="post-menu" id="postMenu">
+            <!-- <div class="post" onclick="postClick(this)" name="qinjie-final project in ME"><span>Study</span>
+            <label class="post-title">final project in ME</label><p class="post-day">sunday 5/6/2019</p>
+            <p>need help and need instructions</p><p class="author">Post by qinjie</p></div> -->
+     	  </div>
+    </div>
+  </div>
+         
+ </div>
+
+ <div class="pagination right" >
+  <a onclick="lastPage()">&laquo;</a>
+ <div id="page-menu">
+  </div>
+  <a onclick="nextPage()">&raquo;</a>
+</div>
+
+<script>
+    storeData();
+    dispalyAllPosts();
+</script>
+</body>
+
+<style>
+  .pagination {
+    display: inline-block;
+    text-align: center;
+    /* display: flex; */
+    /* margin: 0 auto; */
+    /* margin-left: 50px; */
+    /* padding-left: 20%; */
+    /* left: 100%; */
+    padding-left: 25%;
+    /* width: x`50%; */
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+  }
+  
+  .pagination a.active {
+    background-color: #4B0082;
+    color: white;
+    border: 1px solid #4B0082;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd; cursor: pointer;}
+  
+  .pagination a:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .pagination a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  </style>
+</html>
+

@@ -1,0 +1,352 @@
+<html>
+ <!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>My Post</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="post_page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src = "main_page.js"></script>
+  <script>
+    var userName = ''
+    var params = (window.location.hash.substring(1)).split("&");
+    var showButton = false
+    var showNewPost = false
+    if (params[0] == 'Signed'){
+      showButton = true;
+      userName = params[1];           
+    }
+    else {userName = '' }
+  </script>
+</head>
+
+<body class="body">
+  <div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class="navbar head-right" id="my-bar">
+        <script>
+            editNav(userName)
+          </script>
+        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-user"></i>Qinjie <i class="fa fa-caret-down"></i></a> 
+        <ul class="dropdown-menu">
+            <li><a onclick="test()" href="#">profile</a></li>
+        </ul>
+        <a href="#"><i class="fa fa-fw fa-sign-out"></i>Logout</a>  -->
+        <!-- <a href="#" onclick="window.location.href = 'login_in.html'"><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a> -->
+        <!-- <a href="#" id="signup-icon" onclick="editNav()"><i class="fa fa-fw fa-sign-in"></i>Login/Signup</a> -->
+      </div>
+  </div>
+
+  <div class = "title">
+    <form id="post-form" name="post-form" >
+      <textarea class = "filltitle" name="title" type="text" placeholder="Title" id="Title" onclick="ridBorder(this)"></textarea>
+      <textarea class = "fillcontent" name="content" type="text" placeholder="Content" rows = "9" id="Content"onclick="ridBorder(this)" ></textarea>
+      <div class = "category" >
+        <b>Choose one Category from right*: </b>
+        <label class = "choice" onclick=" changeColor(this)" name = "study"><b>Study</b></label>
+        <label class = "choice" onclick=" changeColor(this)" name = "casual"><b>Casual</b></label>
+        <label class = "choice" onclick=" changeColor(this)" name = "daily"><b>Daily</b></label>
+        <label class = "choice" onclick=" changeColor(this)" name = "others"><b>Others</b></label>
+      </div>
+      <div class = "information">
+        <b>Contact Information*: </b>
+          <label class = "contact">Email
+          <input class = "infoform" type = "text" name = "emailInfo" id="email-input" onclick="changeInfoShadow()">
+          <!-- <input class = "infoform" type = text name = "fillemail"> -->
+          Phone
+          <input class = "infoform" type = "text" name = "PhoneInfo" id="phone-input" onclick="changeInfoShadow()">
+          <!-- <input class = "infoform" type = text name = "fillphone"> -->
+          Other
+          <input class = "infoform" type = "text" name = "OtherInfo"onclick="changeInfoShadow()">
+          <!-- <input class = "infoform" type = text name = "fillother"> -->
+          </label>
+          <script>showEmail(userName)
+          </script>
+      </div>
+      <div class = "method">
+          <b>In What Way You Prefer to receive Payments:*:</b>
+          <br>  
+          <label class="radio-inline">
+            <input type="radio" name="pay-method" value="Cash" required >Cash
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="pay-method" value="Check" required>Check
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="pay-method" value="Venmo/Paypal" required>Venmo/Paypal
+          </label>
+              <label class="radio-inline">
+            <input type="radio" name="pay-method" value="Chase" required>Chase Quickpay/Zelle
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="pay-method" value="Other" required>Other
+          </label>
+      </div>
+      <div class = "option">
+          <b>Your Work Schedule*:</b>  
+          <label class="radio-inline">
+            <input type="radio" name="schedule" value="Weekends" required>Only Weekends
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="schedule" value="Workdays" required>Only Workdays
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="schedule" value="both" required>Both Weekends and Weekdays
+          </label>
+      </div>
+      <div class = "linkbutton">
+          <button class = "quit" onclick="window.location.href='main_page.html#Signed&'+userName">Quit</button>
+          <!-- <button type="submit" class = "post" onclick="jumpToMainPage()" >Post</button> -->
+          <button type="submit" class = "post" >Post</button>
+      </div>
+
+    </form>
+  </div>
+
+
+<script type="text/javascript">
+var userCategory = [];
+  function jumpToMainPage() {
+      var Title = document.getElementById("Title").value
+      if(Title == ''){
+        console.log("title none");
+        alert("please add title");
+        return false
+      }
+      var Content = document.getElementById("Content").value
+      if(Content=='')
+      {
+        console.log("content none");
+        alert("please add content")
+        return false
+      }
+      if(confirm("are you sure to post?"))
+      {
+        window.location.href = 'main_page.html' + '#' +'Signed&' +userName +'&'+ Title + '&' + Content;   
+      }
+  }
+  function changeColor(label)
+  {
+    toggleOff()
+    var bgc = label.style.backgroundColor;
+    if(!(bgc == "rgba(79, 59, 140, 0.9)") )
+    {
+      label.style.background = "rgba(79, 59, 140, 90%)";
+      label.checked = true
+      // label.style.border = borderSize ;
+      var choices = document.getElementsByClassName("choice");
+
+      for (i = 0; i < choices.length; i++) {
+        choices[i].style.boxShadow = 'none';
+        }
+      console.log("add border",label.checked);
+      userCategory.push(label.textContent);
+      console.log(userCategory)
+    }
+    else{
+      label.checked = false
+      label.style.background = "rgba(79, 59, 140, 30%)";
+      // label.style.border = "none" ;
+      console.log("turn to none",label.checked);
+      var index = userCategory.indexOf(label.textContent);
+      if (index > -1) {
+        userCategory.splice(index, 1);
+      }
+      console.log(userCategory)
+    }
+  }
+  function toggleOff()
+{
+  var btns = document.getElementsByClassName("choice")
+  // console.log("toggle off length",btns.length)
+  var i=0
+  for(i;i<btns.length;i++)
+  {
+    if(btns[i].checked){
+      btns[i].checked = false
+      btns[i].style.background = "rgba(79, 59, 140, 30%)";
+      // label.style.border = "none" ;
+      console.log("turn to none",btns[i].checked);
+      var index = userCategory.indexOf(btns[i].textContent);
+      if (index > -1) {
+        userCategory.splice(index, 1);
+      }    }
+  }
+}
+
+  document.getElementById('post-form').onsubmit= function(e){
+    e.preventDefault();
+    choiceFlag = checkChoices();
+    infoFlag = checkInfo();
+    TitleFlag = checkTitle();
+    ContentFlag = checkContent();
+    EmailFlag = checkEmail();
+    PhoneFlag = isPhoneValid();
+    console.log(choiceFlag,infoFlag,TitleFlag,ContentFlag,EmailFlag);
+    if(choiceFlag && infoFlag  &&TitleFlag && ContentFlag &&EmailFlag &&PhoneFlag)
+    {
+      console.log("submit form");
+      if(confirm("are you sure to post?"))
+      {
+        var Title = document.getElementById("Title").value
+        var Content = document.getElementById("Content").value
+        storeData()
+        window.location.href = 'main_page.html' + '#' +'Signed&' +userName +'&'+ Title + '&' + Content;   
+      }
+    }
+    return false
+}
+function storeData()
+{
+  var titleName = document.getElementById("Title").value;
+  var keyName = userName+"-"+titleName
+  var userData = JSON.parse(localStorage.getItem(userName));
+  var titleData = ( $("#post-form").serializeArray() ); 
+  var postTime = new Date().getTime();
+  // var keyName = document.getElementById("Title").value;
+  var categoryInfo = {
+        "name": "categories",
+        "value": userCategory
+    };
+  var titleInfo = {
+    "name": "title",
+    "value": keyName
+  }
+  var timeInfo = {
+    "name": "postTime",
+    "value": postTime
+  }
+  userData.push(titleInfo)
+  titleData.push(categoryInfo);
+  titleData.push(timeInfo)
+  userData = JSON.stringify(userData) 
+  titleData = JSON.stringify(titleData)
+  localStorage.setItem(userName,userData);
+  localStorage.setItem(keyName,titleData );
+  console.log(userName,userData)
+  console.log(keyName,titleData)
+
+}
+function checkChoices()
+{
+  // var choices = document.getElementsByName("choice")
+  var choices = document.getElementsByClassName("choice");
+
+    var choicesCheck = false
+    for (i = 0; i < choices.length; i++) {
+        if (choices[i].checked == true) {
+          choicesCheck = true
+          return true
+          }
+        }
+    if( !choicesCheck)
+    {
+      for (i = 0; i < choices.length; i++) {
+        console.log("not checked")
+        choices[i].style.boxShadow = ' 0 0 5px 1px red ';
+        }
+    }
+    return false
+}
+function checkInfo()
+{
+  // var infos = document.getElementsByName("fillInfo");
+  var infos = document.getElementsByClassName("infoform");
+  for (i = 0; i < infos.length; i++) {
+        if ( infos[i].value != '') {
+          infosFlag = true
+          return true
+          }
+        }
+    for (i = 0; i < infos.length; i++) {
+      console.log("not checked")
+      infos[i].style.boxShadow = ' 0 0 5px 1px red ';
+      }
+    return false
+}
+function changeInfoShadow()
+{
+  // var infos = document.getElementsByName("fillInfo")
+  var infos = document.getElementsByClassName("infoform");
+      for (i = 0; i < infos.length; i++) {
+        infos[i].style.boxShadow = 'none';
+        }
+}
+function checkTitle()
+{
+  var infos = document.getElementById("Title")
+  if(infos.value == '')
+  {
+    infos.style.boxShadow =  ' 0 0 5px 1px red ';
+    return false
+  }
+  return true
+}
+function checkContent()
+{
+  var infos = document.getElementById("Content")
+  if(infos.value == '')
+  {
+    infos.style.boxShadow =  ' 0 0 5px 1px red ';
+    return false
+  }
+  return true
+}
+function ridBorder(label)
+{
+  label.style.boxShadow="none";
+}
+function checkEmail()
+{
+  var infos = document.getElementById("email-input")
+  if(infos.value == '')
+  {
+    return true
+  }
+  var re = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  var res =  re.test(String(infos.value).toLowerCase());
+  if(res)
+  {
+    return true
+  }
+  else
+  {
+    console.log('invalid email address')
+    alert("invalid email address")
+    infos.style.boxShadow =  ' 0 0 5px 1px red ';
+    return false
+  }
+}
+function isPhoneValid() {
+  var p = document.getElementById("phone-input").value
+  if(p == '')
+  {
+    return true
+  }
+  var phoneRe = /^[2-9]\d{2}[2-9]\d{2}\d{4}$/;
+  var digits = p.replace(/\D/g, "");
+  var res =  phoneRe.test(digits);
+  console.log(p,"is valid?:",res)
+  if(res)
+  {
+    return true
+  }
+  else{
+    alert("invalid phone number")
+    document.getElementById("phone-input").style.boxShadow =  ' 0 0 5px 1px red ';
+    return false
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="signup_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="main_page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <script src = "main_page.js"></script>
+
+</head>
+
+<body class="body">
+
+<div id="head-bar">
+    <div class = "head-left">
+      <h>NU Freelance Service Page</h>
+    </div>
+    <div class="navbar head-right" id="my-bar">
+        <script>
+            editNav("")
+          </script>
+    </div>
+
+<div class="login-page">
+  <div class="form">
+
+    <form  name="sp-form" id = "signup-form" >
+      <!-- <form  name="sp-form" id = "signup-form" > -->
+        <div><input id="cancel-button" type="button" value="X" onclick="window.location.href='main_page.html'"></div>
+        <h1>Welcome</h1>
+        <input class = "user" name="user-name" type="text" placeholder="choose a user name" id="name" required/>
+        <input class = "email" name="user-email" type="text" placeholder="your email address" id="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$"
+         title="invalid email" required/>
+        <input class = "password" name="user-password" type="password" placeholder="set a password"id="password"  required/>
+        <div class="password-wrapper">
+            <input class = "confirm" type="password" placeholder="confirm password" id="confirmPassword"  required/>
+            <!-- <button class="unmask" type="button" onclick="showPW()" title="Mask/Unmask password to check content">Unmask</button> -->
+        </div>
+        <label class = "check" ><input type="checkbox" id="signup-checkbox" required/>Agree to Register</label> 
+        <button type="submit" id="confirm-button" class="button">CONFIRM TO SIGN UP</button>
+    </form>
+
+    <form class="login-form" id="confirm-form">
+        <div><input id="cancel-button" type="button" value="X" onclick="window.location.href='main_page.html'"></div>
+        <h3>Registered seccessfully!</h3>
+        <button type="button" id="signin-button" onclick="window.location.href='login_in.html'">SIGN IN</button>
+    </form>
+
+    <div class="cta" id="cta-div"><a href="login_in.html">Already register? Click to login</a></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirmPassword");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+
+function openCongraForm() {
+  document.getElementById("confirm-form").style.display = "block";
+}
+
+function closeSignupForm() {
+  document.getElementById("signup-form").style.display = "none";
+  document.getElementById("cta-div").style.display = "none";
+  openCongraForm();
+}
+
+// document.getElementById('signup-form').onsubmit= function(e){
+//      e.preventDefault();
+//      closeSignupForm()
+// }
+function showPW() {
+  var x = document.getElementById("confirmPassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+document.getElementById('signup-form').onsubmit= function(e){
+     e.preventDefault();
+     userFlag = checkUser();
+     if(userFlag)
+     {
+      var userData = JSON.stringify( $("#signup-form").serializeArray() ); 
+     var keyName = document.getElementById("name").value;
+     localStorage.setItem(keyName,userData );
+     console.log(keyName,userData)
+     closeSignupForm()
+     }
+}
+function checkUser()
+{
+  var keyName = document.getElementById("name").value;
+  var userData = JSON.parse(localStorage.getItem(keyName));
+  if(userData == null)
+  {
+    return true
+  }
+  else
+  {
+    alert("user name already exits!!!")
+    return false
+  }
+}
+</script>
+
+</body>
+</html>
+

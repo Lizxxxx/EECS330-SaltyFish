@@ -228,8 +228,13 @@ span{
 {
   border-radius: 5px;
 } */
-.h5
+h5
 {
   color: #4E2A84;
+  font-weight: bolder;
 }
-
+.pw-btn
+{
+  background-color: white;
+  border: none;
+}

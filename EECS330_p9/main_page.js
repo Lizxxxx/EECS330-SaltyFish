@@ -424,6 +424,7 @@ function displayPosts(postList)
     addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer(),tempPost.titleKey)  
   }
   CurrentPosts = postList
+  createPage(CurrentPosts.length)
 }
 function blockPosts()
 {
@@ -558,14 +559,15 @@ function postClick(myDiv)
 }
 function pageShow(pg)
 {
-  var num = pg.innerHTML;
-  // postList = CurrentPosts
-  // displayPosts(postList.splice((num-1)*4,num*4))
-  // pg.setAttribute('class','active')
+  var num = Number(pg.innerHTML);
+  var targtes = CurrentPosts.slice((num)*4,(num+1)*4)
+  displaySubset(targtes)
+  toggleoffPage()
+  pg.setAttribute('class','page-tag active')
 }
 function createPage(num)
 {
-  var numP = num/4 + 1;
+  var numP = num/4 ;
   var i=0
   menu = document.getElementById("page-menu")
   if(menu)
@@ -573,23 +575,85 @@ function createPage(num)
     while (menu.firstChild) {
       menu.removeChild(menu.firstChild);}
     // console.log(numP)
+    if(numP==0){
+      numP=1
+    }
     for(i;i<numP;i++)
     {
       var newDiv = document.createElement("a"); 
       newDiv.setAttribute('onclick','pageShow(this)')
-      newDiv.setAttribute('href','#')
+      // newDiv.setAttribute('href','#')
+      newDiv.setAttribute('class','page-tag')
       newDiv.innerHTML=i
       menu.appendChild(newDiv)
     }
+    pageShow(menu.firstChild)
   }
 }
 function jumpMainpage()
 {
   window.location.href = 'main_page.html' + '#' + 'Signed&' +userName;     
 }
-// function displayLogin()
-// {
-//   logPage = document.getElementById("login-page")
-//   postPage = document.getElementById("main_page_wrapper")
-//   logPage.style.Dis
-// }
+function displaySubset(postList)
+{
+  blockPosts();
+  var i=0;
+  // console.log("subset dispaly",postList.length)
+  for(i;i<postList.length;i++)
+  {
+    var tempPost = postList[i]
+    console.log("display subset",tempPost.title,tempPost.content,tempPost.getUSer())
+    addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer(),tempPost.titleKey)  
+  }
+
+}
+function toggleoffPage()
+{
+  var ps = document.getElementsByClassName("page-tag")
+  var i =0;
+  for(i;i<ps.length;i++)
+  {
+    ps[i].setAttribute("class","page-tag")
+  }
+}
+function nextPage()
+{
+  var ps = document.getElementsByClassName("page-tag")
+  var i =0;
+  var pnum = ps.length
+  for(i;i<ps.length;i++)
+  {
+    tempClass = ps[i].getAttribute("class")
+    if(tempClass.includes("active"))
+    {
+      break
+    }
+  }
+  var nextP = (i+1)%pnum
+  console.log("next page:",nextP)
+  pageShow(ps[nextP])
+}
+function lastPage()
+{
+  var ps = document.getElementsByClassName("page-tag")
+  var i =0;
+  var pnum = ps.length
+  for(i;i<ps.length;i++)
+  {
+    tempClass = ps[i].getAttribute("class")
+    if(tempClass.includes("active"))
+    {
+      break
+    }
+  }
+  var lastP = (i-1+pnum)%pnum
+  console.log("last page:",lastP)
+  pageShow(ps[lastP])
+}
+function showEmail(myKey)
+{
+  var temp = getProfile(myKey);
+  var eD = document.getElementById("email-input")
+  eD.value = temp.email
+  console.log(temp,eD.value)
+}

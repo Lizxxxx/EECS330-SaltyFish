@@ -296,3 +296,9 @@ padding-left:80%;
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.post-menu
+{
+  height: 630px;
+
+}

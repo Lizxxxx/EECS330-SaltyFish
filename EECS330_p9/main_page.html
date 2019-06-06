@@ -114,25 +114,25 @@
   			
 		</div>
 		<div class = "userpost" id="userpost" >
-     		<div id="postMenu">
-      		<script>
-            // if (showNewPost == true){
-            // addPost(params[2],params[3],params[1]);}
-            dispalyAllPosts();
-      	</script>
-     	</div>
-    	</div>
-    	</div>
+     		<div class="post-menu" id="postMenu">
+     	  </div>
+    </div>
+  </div>
          
  </div>
 
- <!-- <div class="pagination right" >
-  <a href="#">&laquo;</a>
+ <div class="pagination right" >
+  <a onclick="lastPage()">&laquo;</a>
  <div id="page-menu">
-  <a href="#" class="active" onclick="pageShow(this)">1</a>
   </div>
-  <a href="#">&raquo;</a>
-</div> -->
+  <a onclick="nextPage()">&raquo;</a>
+</div>
+
+<script>
+    // if (showNewPost == true){
+    // addPost(params[2],params[3],params[1]);}
+    dispalyAllPosts();
+</script>
 </body>
 
 <style>
@@ -140,9 +140,11 @@
     display: inline-block;
     text-align: center;
     /* display: flex; */
-    margin: 0 auto;
-    margin-left: 50px;
-    padding-left: 20%;
+    /* margin: 0 auto; */
+    /* margin-left: 50px; */
+    /* padding-left: 20%; */
+    /* left: 100%; */
+    padding-left: 25%;
     /* width: x`50%; */
   }
   
@@ -160,7 +162,7 @@
     border: 1px solid #4B0082;
   }
   
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+  .pagination a:hover:not(.active) {background-color: #ddd; cursor: pointer;}
   
   .pagination a:first-child {
     border-top-left-radius: 5px;

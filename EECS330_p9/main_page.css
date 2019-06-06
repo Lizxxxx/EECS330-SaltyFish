@@ -163,6 +163,9 @@ span{
  padding-bottom: ;
 padding-left:80%;
 color: gray;
+float: right;
+margin-right: 25px;
+
 }
 
 .post-day
@@ -171,7 +174,7 @@ color: gray;
   /* margin-right: 10px; */
   text-align: right;
   display: inline-block;
-    margin-right: 25px;
+  margin-right: 25px;
   float: right;
   color: gray;
 }

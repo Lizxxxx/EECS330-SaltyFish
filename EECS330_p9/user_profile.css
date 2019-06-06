@@ -141,7 +141,7 @@ a{
 .tab{
   overflow:hidden;
   border-style:none;
-  background-color: #4E2A84;
+  background-color:rgba(79, 59, 140,10%);;
   position:absolute;
   right:0px;
 }
@@ -158,11 +158,11 @@ a{
 }
 
 .tab button:hover{
-  background-color:#ddd;
+  background-color:rgba(78,42,132,50%);;
 }
 
 .tab button.active{
-  background-color: #ccc;
+  background-color:rgba(78,42,132,80%);;
 }
 
 .lower{
@@ -223,5 +223,10 @@ span{
   text-align:center;
   padding-left:2px;
 }
+
+/* .pw-btn
+{
+  border-radius: 5px;
+} */
 
 

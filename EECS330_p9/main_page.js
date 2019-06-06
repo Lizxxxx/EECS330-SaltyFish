@@ -65,9 +65,24 @@ class PostInfo
       return this.categories.otherContact
     } 
   }
+  getPostDay()
+  {
+    var weekday = new Array(7);
+    weekday[0] =  "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    var s = this.postTime
+    var date = new Date(s)
+    var res = weekday[date.getDay()]+" "+(date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear()
+    return res
+  }
 }
 
-function addPost (postText,Content,Tags,userName,titleKey)  {  
+function addPost (postText,Content,Tags,userName,titleKey,myDay)  {  
   var newDiv = document.createElement("div");  
   newDiv.setAttribute('class', 'post');
   // newDiv.onclick = postClick;
@@ -89,6 +104,10 @@ function addPost (postText,Content,Tags,userName,titleKey)  {
   title.setAttribute('class', 'post-title');
   newDiv.appendChild(title);  
   //add post's content
+  var postDay = document.createElement("p");
+  postDay.textContent = myDay; 
+  postDay.setAttribute('class', 'post-day');
+  newDiv.append(postDay);
   var postContent = document.createElement("p");
   postContent.textContent = Content; 
   //postContent.setAttribute('class', 'post-content');
@@ -201,7 +220,7 @@ function getProfile(keyName)
     var postInfo = getPostClass(tempTitle)
     userProfile.postList.push(postInfo);
   }
-  // console.log("userProfile",userProfile)
+  console.log("userProfile",userProfile)
   return userProfile
 }
 function getPostClass(titleKey)
@@ -285,7 +304,7 @@ function allStorage()
     // console.log(timeInfos)
     // console.log(timeInfos.sortIndices);
     // console.log("userList:",allUserInfo)
-    console.log("postList:",allPostInfo)
+    // console.log("postList:",allPostInfo)
     console.log("postList by time:",allPostInfoByTime)
     return allPostInfoByTime
 }
@@ -421,7 +440,7 @@ function displayPosts(postList)
   {
     var tempPost = postList[i]
     // console.log(tempPost.title,tempPost.content,tempPost.getUSer())
-    addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer(),tempPost.titleKey)  
+    addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer(),tempPost.titleKey,tempPost.getPostDay())  
   }
   CurrentPosts = postList
   createPage(CurrentPosts.length)
@@ -602,8 +621,8 @@ function displaySubset(postList)
   for(i;i<postList.length;i++)
   {
     var tempPost = postList[i]
-    console.log("display subset",tempPost.title,tempPost.content,tempPost.getUSer())
-    addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer(),tempPost.titleKey)  
+    // console.log("display subset",tempPost.title,tempPost.content,tempPost.getUSer())
+    addPost (tempPost.title,tempPost.content,tempPost.categories,tempPost.getUSer(),tempPost.titleKey,tempPost.getPostDay())  
   }
 
 }
@@ -656,4 +675,15 @@ function showEmail(myKey)
   var eD = document.getElementById("email-input")
   eD.value = temp.email
   console.log(temp,eD.value)
+}
+function testDate()
+{
+  var tempList = allStorage()
+  var i=0;
+  console.log("test date:",tempList.length)
+
+  for(i;i<tempList.length;i++)
+  {
+    console.log(tempList[i].getPostDay())
+  }
 }

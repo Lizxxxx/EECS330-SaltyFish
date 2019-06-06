@@ -55,22 +55,24 @@
         <i class = "material-icons md-36">arrow_back</i>Back
       </a>
   </div>
-<div class = "yourpost">
-	<div class = "title">
-		<label class = "study">Study</label><script type="text/javascript">document.write(res.title)</script>
-	</div>
-	<p class = "content">
-    <script type="text/javascript">document.write(res.content)</script>
-    </p>
-</div>
-<div class = "contact-info">
-	<span>Contact Information: <script type="text/javascript">document.write(res.getContactInfo())</script><span>
-</div>
-<div class = "payment-method">
-	Payment Method:<script type="text/javascript">document.write(res.payment)</script>
-</div>
-<div class = "schedule-option">
-	Schedule Options:<script type="text/javascript">document.write(res.schedule)</script>
-</div>
+  <div class = "yourpost">
+    <div class = "title">
+      <label class = "study"><script>document.write(res.categories[0])</script></label>
+      <script type="text/javascript">document.write(res.title)</script>
+    </div>
+    <p class = "content">
+      <script type="text/javascript">  document.write(res.content)</script>
+      </p>
+  </div>
+  <div class = "contact-info">
+    <span>Contact Information: <div class="info-bolder"><script type="text/javascript">document.write(res.getContactInfo())</script>
+      </div></span>
+  </div>
+  <div class = "payment-method">
+    Payment Method: <div class="info-bolder"><script type="text/javascript">document.write(res.payment)</script></div>
+  </div>
+  <div class = "schedule-option">
+    Schedule Options: <div class="info-bolder"><script type="text/javascript">document.write(res.getSche())</script></div>
+  </div>
 </body>
 </html>

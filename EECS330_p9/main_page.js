@@ -80,6 +80,13 @@ class PostInfo
     var res = weekday[date.getDay()]+" "+(date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear()
     return res
   }
+  getSche()
+  {
+    if(this.schedule=="both"){
+      return "workdays and weekends"
+    }
+    return this.schedule
+  }
 }
 
 function addPost (postText,Content,Tags,userName,titleKey,myDay)  {  

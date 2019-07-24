@@ -1,6 +1,5 @@
 # EECS330-SaltyFish
-5.8
-Create Project5 Branch
-For all the pull requests, we have directly merged to the master branch.
-I asked Professor, he said it's fine and we just need to create a new P5 branch. And all other branches were deleted after merging.
+
+This is the group project repo for EECS330 Spring2019. 
+Our project is a freelance service page for Northwestern community. 
 
